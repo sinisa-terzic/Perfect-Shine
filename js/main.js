@@ -87,7 +87,8 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Postavlja globalni handler za browser history (back/forward buttons)
      */
-    function setupGlobalHistoryHandler() {
+    function setupHistoryManagement() {
+        // Handle browser back/forward buttons
         window.addEventListener('popstate', function (event) {
             const state = event.state;
             if (!state) {
@@ -102,13 +103,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
+
+        // Handle initial hash on page load
+        window.addEventListener('load', function () {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#pricing-')) {
+                const planId = hash.split('-')[1];
+                showPricingModal(planId);
+            }
+        });
     }
 
     /**
      * Zatvara sve modalne prozore
      */
     function closeAllModals() {
-        closePricingModalWithoutHistory();
+        closePricingModal(false); // false = bez history manipulacije
     }
 
     /**
@@ -686,19 +696,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==================== PRICING MODAL WITH BROWSER HISTORY ====================
 
     /**
-     * Postavlja history handler za pricing modal
-     */
-    function setupPricingHistory() {
-        window.addEventListener('load', function () {
-            const hash = window.location.hash;
-            if (hash && hash.startsWith('#pricing-')) {
-                const planId = hash.split('-')[1];
-                showPricingModal(planId);
-            }
-        });
-    }
-
-    /**
      * Prikazuje pricing modal sa browser history management
      */
     function showPricingModal(planId) {
@@ -736,17 +733,19 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Zatvara pricing modal sa browser history management
      */
-    function closePricingModal() {
+    function closePricingModal(useHistory = true) {
         const modal = document.getElementById('pricing-modal');
         if (!modal || modal.style.display === 'none') return;
 
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
 
-        const currentState = history.state;
-        if (currentState && currentState.modal === 'pricing') {
-            if (window.location.hash && window.location.hash.startsWith('#pricing-')) {
-                window.history.back();
+        if (useHistory) {
+            const currentState = history.state;
+            if (currentState && currentState.modal === 'pricing') {
+                if (window.location.hash && window.location.hash.startsWith('#pricing-')) {
+                    window.history.back();
+                }
             }
         }
     }
@@ -953,9 +952,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Učitaj structured data
         await loadAndInjectStructuredData();
 
-        setupGlobalHistoryHandler();
-        setupPricingHistory();
-        setupPricingModalEventListeners();
+        setupHistoryManagement(); // Konsolidovana history management funkcija
         setupPricingModalButtons();
         setupPartnersMarquee();
         // FORM SETUP COMPLETELY REMOVED
