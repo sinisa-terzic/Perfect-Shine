@@ -15,18 +15,19 @@
 
 html,
 body {
-    font-size: 62.5%;
     scroll-behavior: smooth;
 }
 
 /* Set core body defaults */
 body {
     min-height: 100vh;
-    line-height: 1;
+    line-height: 1.4;
     text-rendering: optimizeSpeed;
     font-family: 'Montserrat', sans-serif;
     color: var(--color-dark);
     overflow-x: hidden;
+    font-size: clamp(1rem, 1.05rem, 1.125rem);
+    /* konsistentnije sa rem */
 }
 
 /* Remove list styles */
