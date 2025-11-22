@@ -1,0 +1,392 @@
+{
+    "pageTitle": "Deep Cleaning Tivat, Kotor, Budva | Perfect Shine",
+    "pageDescription": "Deep cleaning Tivat, Kotor, Budva | Professional cleaning of cars, furniture, yachts, hotels | Free estimate | Open 7 days a week | +382 68 069 211",
+    "nav": {
+        "services": "Services",
+        "gallery": "Gallery",
+        "pricing": "Pricing",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "PERFECT CLEANING",
+        "item1": "Cars",
+        "item2": "Furniture",
+        "item3": "Carpets",
+        "item4": "Mattresses",
+        "aboutLink": "About Us"
+    },
+    "callUs": {
+        "prompt": "Call or send SMS:",
+        "number": "+382 68 069 211"
+    },
+    "about": {
+        "subheading": "Deep Cleaning Tivat, Kotor, Budva",
+        "title": "Perfect Shine - Deep Cleaning Service",
+        "lead": "Deep Cleaning In Detail:",
+        "description1": "&nbsp;<span style=\"color: #635270; font-size: 1.5rem;\">&#9733;</span>&nbsp;&nbsp;Deep cleaning is a type of machine-assisted cleaning where cleaning solutions penetrate even the deepest layers of fabric to effectively remove contaminants from the material. The dirt is then extracted from the material using professional machines and modern, non-toxic, biodegradable cleaning agents.",
+        "description2": "&nbsp;<span style=\"color: #635270; font-size: 1.5rem;\">&#9733;</span>&nbsp;&nbsp;Our team guarantees quality and precision in the deep cleaning of car interiors, sofas, mattresses, and easy chairs. We use <a href=\"#featuree\" class=\"link\">modern equipment and eco-friendly solutions</a> that completely remove impurities from deep within the material, while protecting both your health and the fabric itself.",
+        "description3": "&nbsp;<span style=\"color: #635270; font-size: 1.8rem;\">&#9830;</span>&nbsp;&nbsp;<strong class=\"highlighting\">We provide services across the Montenegrin coast - call us for a free estimate and see the quality of our work for yourself!</strong>",
+        "button": "Learn More »"
+    },
+    "services": {
+        "subheading": "deep cleaning services tivat, kotor, budva",
+        "title": "Complete Deep Cleaning Services",
+        "service1": {
+            "title": "Furniture & Rugs",
+            "activities": {
+                "cleaning": "Cleaning",
+                "washing": "Washing"
+            },
+            "items": {
+                "furniture": "Furniture sets",
+                "mattresses": "Mattresses",
+                "cushions": "Floor Coverings"
+            },
+            "links": {
+                "gallery": "Gallery",
+                "pricing": "Prices"
+            }
+        },
+        "service2": {
+            "title": "Vehicles & Vessels",
+            "activities": {
+                "cleaning": "Cleaning",
+                "washing": "Washing",
+                "polishing": "Polymerization"
+            },
+            "items": {
+                "regularWash": "Regular wash",
+                "deepWashing": "Deep cleaning",
+                "headlights": "Headlight polymerization"
+            },
+            "links": {
+                "gallery": "Gallery",
+                "pricing": "Prices"
+            }
+        },
+        "service3": {
+            "title": "Hotels & Yachts",
+            "activities": {
+                "cleaning": "Cleaning",
+                "washing": "Washing",
+                "upkeep": "Maintenance"
+            },
+            "items": {
+                "exterior": "Exterior of Hotels and Yachts",
+                "yachtInterior": "Yacht Interior",
+                "rooms": "Rooms / Lounges / Terraces"
+            },
+            "links": {
+                "gallery": "Gallery",
+                "pricing": "Prices"
+            }
+        },
+        "info": {
+            "title": "What do we get with regular maintenance of living and working environments?",
+            "points": {
+                "point1": "<strong><em>With deep cleaning</em></strong> - we remove a wide range of allergens, such as pet hair, dust mites, dust, pollen, and much more. The result? The air in your house, vehicle, vessel, or office becomes incomparably cleaner, creating a space where staying is not only comfortable but also extremely healthy and pleasant. Invest in the quality of your environment – experience comfort that goes a step further than ordinary cleaning!",
+                "point2": "<strong><em>Deep cleaning includes</em></strong> - all upholstered and porous surfaces, giving your old and faded furniture a new life. Let your furniture shine with its old brilliance again and regain its original look, as when it arrived in your home. In addition to aesthetic improvement, deep cleaning extends the lifespan of your furniture, making it more durable and preserved. Revitalize your space with our expertise in restoring the shine and longevity of your beloved furniture!",
+                "point3": "<strong><em>Leather furniture</em></strong> - has its unique story, and we bring top results that will delight you. Although leather does not have deep layers like other materials, our process quickly and efficiently restores the old shine to your furniture. With us, your leather furniture will look completely new – quickly, simply, and with excellent results",
+                "point4": "<strong><em>Regular washing</em></strong> - has its limitations, often being fast and focused on surface removal of stains and dirt. However, dirt often remains buried in hard-to-reach places. For complete cleanliness and restoration of your vehicle, furniture, and other items, deep cleaning is necessary. We offer you an efficient and comprehensive approach, ensuring that no dirt remains undetected. Give your belongings the attention they deserve with our deep cleaning service!",
+                "point5": "<strong><em>Headlight polymerization</em></strong> - is an extremely effective treatment that brings a series of advantages compared to classic polishing. Besides the improved appearance of the headlights, it provides long-lasting protection against UV radiation and physical damage, extending the lifespan. After the treatment, your headlights will shine like new, and you will enjoy a long-lasting aesthetic and functional improvement!",
+                "point6": "<strong><em>Your vessel or vehicle</em></strong> - will radiate the same shine as on the first day it left the factory! Our immense dedication to detail is reflected in the impeccable appearance of the exterior, the cabin interior, and all rooms. We strive to preserve authenticity, comfort, and elegance, providing you with an experience as if it has just left the production line!",
+                "point7": "<strong><em>Green areas</em></strong> - shape them according to your wishes and needs, and our expert team will dedicate itself to flawless and professional implementation. Our goal is to turn your visions into reality, creating for you a \"small green paradise\" that reflects your unique aesthetic and meets all your expectations."
+            }
+        }
+    },
+    "features": {
+        "feature1": {
+            "title": "Airbox Cleaner IV",
+            "points": {
+                "point1": "Cleans air conditioners",
+                "point2": "Cleans vehicle cabin",
+                "point3": "No unpleasant odors",
+                "point4": "Refreshes the space",
+                "point5": "No wet surfaces"
+            }
+        },
+        "feature2": {
+            "title": "Puzzi 8/1 C",
+            "description": "Deep cleaning:",
+            "points": {
+                "point1": "Vehicle interior",
+                "point2": "Furniture",
+                "point3": "Refreshes the space",
+                "point4": "Low moisture"
+            }
+        },
+        "feature3": {
+            "title": "HD 5/15 C",
+            "points": {
+                "point1": "Pressure washing",
+                "point2": "Excellent mobility",
+                "point3": "Advanced equip.",
+                "point4": "High efficiency",
+                "point5": "Exceptional speed"
+            }
+        },
+        "serviceList": {
+            "title": "Range of services:",
+            "services": {
+                "service1": "Yacht maintenance",
+                "service2": "Hotel maintenance",
+                "service3": "Apt. maintenance",
+                "service4": "Furniture maintenance",
+                "service5": "Vehicle maintenance",
+                "service6": "Disinfection",
+                "service7": "Disinsection",
+                "service8": "Deratization",
+                "service9": "Polymerization"
+            }
+        }
+    },
+    "gallery": {
+        "subheading": "Gallery"
+    },
+    "callUsDialog": {
+        "title": "CALL US"
+    },
+    "pricing": {
+        "title": "Our Service Prices",
+        "subheading": "Transparent Pricing",
+        "selectService": "Select Service",
+        "calculatorNote": "Calculator shows starting price!",
+        "dryingText": "drying",
+        "callUsText": "call us !",
+        "customPriceMessage": "Prices are created individually depending on the condition, complexity of the job and specific requirements. Our team will be happy to provide you with a free assessment and adjust the price according to your needs. Contact us for a more detailed offer!",
+        "plans": {
+            "dubinsko_pranje": {
+                "title": "Furniture & Rugs",
+                "items": {
+                    "garniture": {
+                        "label": "Furniture sets"
+                    },
+                    "dušeci": {
+                        "label": "Mattresses"
+                    },
+                    "podne_obloge": {
+                        "label": "Floor coverings"
+                    }
+                },
+                "fullPriceButton": "Complete price list",
+                "modalTitle": "Price list for furniture / rugs"
+            },
+            "vozila_i_plovila": {
+                "title": "Vehicles & Vessels",
+                "items": {
+                    "obično_pranje": {
+                        "label": "Regular wash"
+                    },
+                    "dubinsko_pranje": {
+                        "label": "Deep cleaning"
+                    },
+                    "sređivanje_farova": {
+                        "label": "Headlight polishing"
+                    }
+                },
+                "fullPriceButton": "Complete price list",
+                "modalTitle": "Price list for vehicles / vessels"
+            },
+            "hoteli_i_jahte": {
+                "title": "Hotels & Yachts",
+                "items": {
+                    "održavanje_jahte": {
+                        "label": "Yacht maintenance"
+                    },
+                    "održavanje_hotela": {
+                        "label": "Hotel maintenance"
+                    },
+                    "zelene_površine": {
+                        "label": "Green areas"
+                    }
+                },
+                "fullPriceButton": "Complete price list",
+                "modalTitle": "Price list for yachts / hotels"
+            }
+        },
+        "modal": {
+            "prices": {
+                "dubinsko_pranje": [
+                    {
+                        "name": "Furniture sets",
+                        "subitems": [
+                            {
+                                "name": "&#x2022; Chairs"
+                            },
+                            {
+                                "name": "&#x2022; Stools"
+                            },
+                            {
+                                "name": "&#x2022; Armchairs"
+                            },
+                            {
+                                "name": "&#x2022; Two-seater"
+                            },
+                            {
+                                "name": "&#x2022; Three-seater"
+                            },
+                            {
+                                "name": "&#x2022; Small corner sofa"
+                            },
+                            {
+                                "name": "&#x2022; Large corner sofa"
+                            },
+                            {
+                                "name": "&#x2022; Double bed - JUMBO"
+                            },
+                            {
+                                "name": "&#x2022; Cushions"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Mattresses",
+                        "subitems": [
+                            {
+                                "name": "&#x2022; Children's"
+                            },
+                            {
+                                "name": "&#x2022; Single"
+                            },
+                            {
+                                "name": "&#x2022; Double"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Floor coverings",
+                        "subitems": [
+                            {
+                                "name": "&#x2022; Carpets"
+                            },
+                            {
+                                "name": "&#x2022; Rugs (per m²)"
+                            }
+                        ]
+                    }
+                ],
+                "vozila_i_plovila": [
+                    {
+                        "name": "Regular wash",
+                        "subitems": [
+                            {
+                                "name": "&#x2022; Small vehicle"
+                            },
+                            {
+                                "name": "&#x2022; Station wagon"
+                            },
+                            {
+                                "name": "&#x2022; SUV"
+                            },
+                            {
+                                "name": "&#x2022; Engine compartment"
+                            },
+                            {
+                                "name": "&#x2022; Airbox treatment"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Deep cleaning",
+                        "subitems": [
+                            {
+                                "name": "&#x2022; Small vehicle"
+                            },
+                            {
+                                "name": "&#x2022; Sedan"
+                            },
+                            {
+                                "name": "&#x2022; Station wagon"
+                            },
+                            {
+                                "name": "&#x2022; SUV"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Headlight polishing",
+                        "subitems": [
+                            {
+                                "name": "&#x2022; Polishing"
+                            },
+                            {
+                                "name": "&#x2022; Polymerization"
+                            }
+                        ]
+                    }
+                ],
+                "hoteli_i_jahte": [
+                    {
+                        "name": "Yacht maintenance",
+                        "subitems": [
+                            {
+                                "name": "&#x2022; Exterior"
+                            },
+                            {
+                                "name": "&#x2022; Cabin"
+                            },
+                            {
+                                "name": "&#x2022; Helm"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Hotel maintenance",
+                        "subitems": [
+                            {
+                                "name": "&#x2022; Exterior"
+                            },
+                            {
+                                "name": "&#x2022; Rooms"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Green areas",
+                        "subitems": [
+                            {
+                                "name": "&#x2022; Two-seater bench"
+                            },
+                            {
+                                "name": "&#x2022; Cabin"
+                            },
+                            {
+                                "name": "&#x2022; Gardens"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "footer": {
+                "note": "<strong>Note:</strong> &nbsp; Prices are approximate and may vary depending on the condition and complexity of the work. The final price is determined after inspection."
+            }
+        }
+    },
+    "partners": {
+        "title": "Our Business Partners",
+        "subheading": "With our partners, we share the path towards innovation and success.",
+        "footer": "Join Us"
+    },
+    "contact": {
+        "title": "Location",
+        "sendEmail": "Send email",
+        "address": "Address",
+        "namePlaceholder": "Your name *",
+        "phonePlaceholder": "Phone *",
+        "messagePlaceholder": "Your message... *",
+        "sendButton": "Send",
+        "enterData": "Enter data",
+        "noData": "Currently unavailable !",
+        "sending": "Sending...",
+        "error": "An error has occurred. Please try again.",
+        "success": "Message sent successfully! We'll contact you soon.",
+        "validation": {
+            "required": "All fields are required.",
+            "subjectLength": "Subject must have at least 2 characters and contain meaningful text.",
+            "subjectRandom": "Subject should not contain random text, repeating characters or isolated letters.",
+            "phoneInvalid": "Please enter a valid phone number (mobile: 067 123 456, landline: 032 123 456)",
+            "messageLength": "Message must have at least 5 characters and contain meaningful text.",
+            "messageRandom": "Message should not contain random text, repeating characters or isolated letters."
+        }
+    }
+}
