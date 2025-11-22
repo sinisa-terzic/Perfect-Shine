@@ -1,4 +1,4 @@
-// main.js - SAMO CALLUS OVERLAY DODAT, SVE OSTALO ORIGINALNO
+// main.js - COMPLETE SYNCHRONIZED VERSION (ALL FORM FUNCTIONALITY REMOVED)
 document.addEventListener('DOMContentLoaded', function () {
     // ==================== GLOBAL VARIABLES ====================
     const body = document.body;
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const callUsImg = document.querySelector('.callUs');
     const callUsClose = document.querySelector('.callUs-close');
     const callUsIcon = document.querySelector('.open-callUs');
-    const callUsOverlay = document.querySelector('#callUsOverlay');
     const logo1 = document.querySelector(".logo");
     const logo2 = document.querySelector(".logo-sm");
 
@@ -21,63 +20,32 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentPrices = {};
     let translationCache = {};
 
-    // ==================== CALL US DIALOG MANAGEMENT ====================
+    // ==================== UTILITY FUNCTIONS ====================
 
     /**
-     * Otvara callUs dialog sa browser history management
+     * Zatvara sve UI elemente (language dropdown, call options, call us dialog)
      */
-    function openCallUsDialog() {
-        if (callUsImg && callUsIcon && callUsOverlay) {
-            callUsOverlay.classList.add("active");
-            callUsImg.classList.add("callUs-is-open");
-            callUsIcon.classList.add("open-callUs-remove");
-            body.classList.add("callUs-open");
-
-            UTILS.addHidden(language);
-            UTILS.addHidden(callOptions);
-
-            const currentState = history.state;
-            if (!currentState || currentState.modal !== 'callUs') {
-                window.history.pushState({
-                    modal: 'callUs'
-                }, '', `#callUs`);
-            }
-        }
-    }
-
-    /**
-     * Zatvara callUs dialog sa browser history management
-     */
-    function closeCallUsDialog() {
-        if (callUsImg && callUsOverlay) {
-            callUsOverlay.classList.remove("active");
-            callUsImg.classList.remove("callUs-is-open");
-            callUsIcon?.classList.remove("open-callUs-remove");
-            body.classList.remove("callUs-open");
-
-            const currentState = history.state;
-            if (currentState && currentState.modal === 'callUs') {
-                if (window.location.hash && window.location.hash === '#callUs') {
-                    window.history.back();
-                }
-            }
-        }
-    }
-
-    // ==================== ORIGINALNE FUNKCIJE (NETAKNUTE) ====================
-
     const closeAllUIElements = () => {
         UTILS.addHidden(language);
         UTILS.addHidden(callOptions);
-        closeCallUsDialog();
+        callUsImg?.classList.remove("callUs-is-open");
+        callUsIcon?.classList.remove("open-callUs-remove");
     };
 
+    /**
+     * Zaustavlja propagaciju eventa kako ne bi trigger-ovali parent event handlere
+     */
     const stopPropagation = (e) => e?.stopPropagation?.();
 
     const debounce = UTILS.debounce;
 
-    function showLanguageLoading(lang) {
+
+    /**
+        * Prikazuje loading state za promjenu jezika
+    */
+    function showLanguageLoading(lang) {  // DODAJ lang PARAMETER
         body.classList.add('language-changing');
+
         let loadingOverlay = document.querySelector('.language-loading-overlay');
         if (!loadingOverlay) {
             loadingOverlay = document.createElement('div');
@@ -85,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.appendChild(loadingOverlay);
         }
 
+        // Postavi tekst na osnovu jezika PRVO
         const loadingTexts = {
             'sr': 'Učitavanje...',
             'en': 'Loading...',
@@ -92,16 +61,20 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         loadingOverlay.innerHTML = `
-            <div class="language-loading-spinner"></div>
-            <p class="language-loading-text">${loadingTexts[lang] || 'Loading...'}</p>
-        `;
+        <div class="language-loading-spinner"></div>
+        <p class="language-loading-text">${loadingTexts[lang] || 'Loading...'}</p>
+    `;
 
         loadingOverlay.classList.add('active');
         loadingOverlay.style.display = 'flex';
     }
 
+    /**
+     * Sakriva loading state za promjenu jezika
+     */
     function hideLanguageLoading() {
         body.classList.remove('language-changing');
+
         const loadingOverlay = document.querySelector('.language-loading-overlay');
         if (loadingOverlay) {
             loadingOverlay.classList.remove('active');
@@ -109,12 +82,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ==================== BROWSER HISTORY MANAGEMENT ====================
+
+    /**
+     * Postavlja globalni handler za browser history (back/forward buttons)
+     */
     function setupGlobalHistoryHandler() {
         window.addEventListener('popstate', function (event) {
             const state = event.state;
             if (!state) {
-                closePricingModalWithoutHistory();
-                closeCallUsDialog();
+                closeAllModals();
                 return;
             }
 
@@ -127,18 +104,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /**
+     * Zatvara sve modalne prozore
+     */
     function closeAllModals() {
         closePricingModalWithoutHistory();
-        closeCallUsDialog();
     }
 
+    /**
+     * Zatvara pricing modal bez manipulacije browser history-ja
+     */
     function closePricingModalWithoutHistory() {
         const modal = document.getElementById('pricing-modal');
         if (!modal || modal.style.display === 'none') return;
+
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
 
+    // ==================== PRICE MANAGEMENT ====================
+
+    /**
+     * Učitava cijene iz JSON fajla
+     */
     async function loadPrices() {
         try {
             const response = await fetch('data/prices.json');
@@ -151,10 +139,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /**
+     * Formatira cijenu sa jezičkim prefiksima (od/from/от)
+     */
     function formatPrice(priceData) {
         return UTILS.formatPrice(priceData, currentLanguage);
     }
 
+    // ==================== RADIO PRICE MANAGEMENT ====================
+
+    /**
+     * Postavlja radio button sistem za dinamičko računanje cijena
+     */
     function setupRadioPrices() {
         CONFIG.pricing.radioSections.forEach(section => {
             const radioPrices = currentPrices.radio_prices?.[section.planKey];
@@ -195,6 +191,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /**
+     * Resetuje radio dugmad za hotelsku sekciju
+     */
     function resetHotelRadios() {
         const hotelRadios = document.querySelectorAll('#checkboxes-3 input[type="radio"]');
         hotelRadios.forEach(radio => {
@@ -207,20 +206,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /**
+     * Ažurira prikaz cijene za radio selection
+     */
     function updateRadioPriceDisplay(output, radioItem, sectionId) {
         if (sectionId === 2 && radioItem.price === 100.00) {
             const dryingText = getTranslation('pricing.dryingText') || 'sušenje';
             output.innerHTML = `
-                <span class="euro">€</span><span>${radioItem.price?.toFixed(2) || '0.00'}</span>
-                ${radioItem.plus ? '<span class="price-plus">+</span>' : ''}
-                <p class="level"><span>${dryingText}</span> ~ 24<sup>h</sup></p>
-            `;
+            <span class="euro">€</span><span>${radioItem.price?.toFixed(2) || '0.00'}</span>
+            ${radioItem.plus ? '<span class="price-plus">+</span>' : ''}
+            <p class="level"><span>${dryingText}</span> ~ 24<sup>h</sup></p>
+        `;
         } else if (sectionId === 3) {
             const callUsText = getTranslation('pricing.callUsText') || 'pozovite nas!';
             output.innerHTML = `
-                <span class="euro">€</span><span>${radioItem.price?.toFixed(2) || '0.00'}</span>
-                <p class="level"><span class="call-us-trigger">${callUsText}</span></p>
-            `;
+        <span class="euro">€</span><span>${radioItem.price?.toFixed(2) || '0.00'}</span>
+        <p class="level"><span class="call-us-trigger">${callUsText}</span></p>
+    `;
 
             const callUsTrigger = output.querySelector('.call-us-trigger');
             if (callUsTrigger) {
@@ -249,6 +251,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /**
+     * Otvara callUs dialog
+     */
+    function openCallUsDialog() {
+        if (callUsImg && callUsIcon) {
+            callUsImg.classList.add("callUs-is-open");
+            callUsIcon.classList.add("open-callUs-remove");
+            UTILS.addHidden(language);
+            UTILS.addHidden(callOptions);
+        }
+    }
+
+    // ==================== UI MANAGEMENT ====================
+
+    /**
+     * Debounced funkcija za sticky navigation
+     */
     const optimizedCheckStickyNavigation = debounce(() => {
         const heroSection = document.querySelector(".hero-text-box");
         if (!heroSection) return;
@@ -265,10 +284,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 10);
 
+    /**
+     * Proverava i ažurira sticky navigation stanje
+     */
     function checkStickyNavigation() {
         optimizedCheckStickyNavigation();
     }
 
+    // ==================== EVENT HANDLERS ====================
+
+    /**
+     * Postavlja sve globalne event listenere
+     */
     function setupEventListeners() {
         window.addEventListener('scroll', function () {
             closeAllUIElements();
@@ -294,25 +321,27 @@ document.addEventListener('DOMContentLoaded', function () {
             stopPropagation(e);
             UTILS.toggleHidden(language);
             UTILS.addHidden(callOptions);
-            closeCallUsDialog();
+            callUsImg?.classList.remove("callUs-is-open");
+            callUsIcon?.classList.remove("open-callUs-remove");
         });
 
         phoneNumber?.addEventListener("click", function (e) {
             stopPropagation(e);
             UTILS.toggleHidden(callOptions);
             UTILS.addHidden(language);
-            closeCallUsDialog();
+            callUsImg?.classList.remove("callUs-is-open");
+            callUsIcon?.classList.remove("open-callUs-remove");
         });
 
         callUsIcon?.addEventListener('click', function (e) {
             stopPropagation(e);
-            openCallUsDialog();
+            callUsImg?.classList.add("callUs-is-open");
+            this.classList.add("open-callUs-remove");
+            UTILS.addHidden(language);
+            UTILS.addHidden(callOptions);
         });
 
-        callUsClose?.addEventListener('click', function (e) {
-            stopPropagation(e);
-            closeCallUsDialog();
-        });
+        callUsClose?.addEventListener('click', closeAllUIElements);
 
         document.addEventListener('click', function (e) {
             if (!e.target.closest('.language') &&
@@ -327,22 +356,13 @@ document.addEventListener('DOMContentLoaded', function () {
         [language, callOptions, callUsImg].forEach(element => {
             element?.addEventListener('click', stopPropagation);
         });
-
-        // ESC key za callUs
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && callUsOverlay?.classList.contains("active")) {
-                closeCallUsDialog();
-            }
-        });
-
-        // Click na overlay da zatvori
-        callUsOverlay?.addEventListener('click', function (e) {
-            if (e.target === callUsOverlay) {
-                closeCallUsDialog();
-            }
-        });
     }
 
+    // ==================== INTERNATIONALIZATION ====================
+
+    /**
+     * Dobija prevedeni tekst za dati ključ
+     */
     function getTranslation(key) {
         if (window.currentTranslations) {
             return UTILS.getNestedValue(window.currentTranslations, key);
@@ -351,6 +371,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return element ? element.textContent : null;
     }
 
+    /**
+     * Učitava translation fajl za dati jezik
+     */
     async function loadTranslations(lang) {
         if (translationCache[lang]) {
             return translationCache[lang];
@@ -370,6 +393,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /**
+     * Ažurira HTML lang attribute za SEO
+     */
     function updateHtmlLangAttribute(lang) {
         const htmlElement = document.documentElement;
         if (htmlElement) {
@@ -377,6 +403,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /**
+     * Ažurira placeholder tekste u formi na trenutni jezik
+     */
     function updateFormPlaceholders() {
         const subjectInput = document.querySelector('input[name="subject"]');
         const phoneInput = document.querySelector('input[name="phone"]');
@@ -393,26 +422,40 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ==================== DYNAMIC META TAGS ====================
+
+    /**
+     * Ažurira dinamičke meta tagove za SEO
+     */
     function updateDynamicMetaTags(translations) {
         if (!translations) return;
 
+        // Ažuriraj description
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription && translations.pageDescription) {
             metaDescription.content = translations.pageDescription;
         }
 
+        // Ažuriraj title
         const pageTitle = document.querySelector('title');
         if (pageTitle && translations.pageTitle) {
             pageTitle.textContent = translations.pageTitle;
         }
 
+        // Ažuriraj Open Graph tagove
         updateOpenGraphTags(translations);
+
+        // Ažuriraj Geo tagove
         updateGeoTags(translations);
     }
 
+    /**
+     * Ažurira Open Graph tagove
+     */
     function updateOpenGraphTags(translations) {
         const ogLocaleMap = { 'sr': 'sr_RS', 'en': 'en_US', 'ru': 'ru_RU' };
 
+        // Og:title
         let ogTitle = document.querySelector('meta[property="og:title"]');
         if (!ogTitle) {
             ogTitle = document.createElement('meta');
@@ -421,6 +464,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         ogTitle.setAttribute('content', translations?.pageTitle || 'Perfect Shine - Dubinsko Pranje');
 
+        // Og:description
         let ogDescription = document.querySelector('meta[property="og:description"]');
         if (!ogDescription) {
             ogDescription = document.createElement('meta');
@@ -430,6 +474,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ogDescription.setAttribute('content', translations?.pageDescription ||
             'Profesionalno dubinsko pranje automobila, garnitura, jahti i hotela na crnogorskom primorju.');
 
+        // Og:locale
         let ogLocale = document.querySelector('meta[property="og:locale"]');
         if (!ogLocale) {
             ogLocale = document.createElement('meta');
@@ -438,9 +483,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         ogLocale.setAttribute('content', ogLocaleMap[currentLanguage] || 'sr_RS');
 
+        // Ostali OG tagovi koji su statički
         ensureOpenGraphTags();
     }
 
+    /**
+     * Osigurava da postoje osnovni Open Graph tagovi
+     */
     function ensureOpenGraphTags() {
         const requiredOgTags = [
             { property: 'og:type', content: 'website' },
@@ -462,6 +511,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /**
+     * Ažurira Geo tagove
+     */
     function updateGeoTags(translations) {
         const geoData = {
             'sr': {
@@ -486,6 +538,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const currentGeo = geoData[currentLanguage] || geoData['sr'];
 
+        // Geo region
         let geoRegion = document.querySelector('meta[name="geo.region"]');
         if (!geoRegion) {
             geoRegion = document.createElement('meta');
@@ -494,6 +547,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         geoRegion.setAttribute('content', currentGeo.region);
 
+        // Geo placename
         let geoPlacename = document.querySelector('meta[name="geo.placename"]');
         if (!geoPlacename) {
             geoPlacename = document.createElement('meta');
@@ -502,6 +556,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         geoPlacename.setAttribute('content', currentGeo.placename);
 
+        // Geo position
         let geoPosition = document.querySelector('meta[name="geo.position"]');
         if (!geoPosition) {
             geoPosition = document.createElement('meta');
@@ -510,6 +565,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         geoPosition.setAttribute('content', currentGeo.position);
 
+        // ICBM
         let icbm = document.querySelector('meta[name="ICBM"]');
         if (!icbm) {
             icbm = document.createElement('meta');
@@ -519,6 +575,9 @@ document.addEventListener('DOMContentLoaded', function () {
         icbm.setAttribute('content', currentGeo.ICBM);
     }
 
+    /**
+     * Primjenjuje prevode na sve elemente na stranici
+     */
     function applyTranslations(translations) {
         if (!translations) return;
 
@@ -552,6 +611,9 @@ document.addEventListener('DOMContentLoaded', function () {
         updateDynamicMetaTags(translations);
     }
 
+    /**
+     * Ažurira prikaz jezičkog selector-a
+     */
     function updateLanguageDisplay(lang) {
         const languageImg = document.querySelector('#languageImg img');
         const languageDropdown = document.querySelector('.language');
@@ -582,6 +644,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /**
+     * Učitava i primjenjuje jezik
+     */
     async function loadAndApplyLanguage(lang) {
         currentLanguage = lang;
         updateHtmlLangAttribute(lang);
@@ -595,12 +660,16 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('preferredLanguage', lang);
     }
 
+    /**
+     * Mijenja jezik sajta
+     */
     async function changeLanguage(lang) {
         if (lang === currentLanguage) return;
 
-        showLanguageLoading(lang);
+        showLanguageLoading(lang);  // PROSLEDI JEZIK
 
         try {
+            // Kratka zadrška od 300ms da se vidi loader
             await new Promise(resolve => setTimeout(resolve, 300));
 
             updateHtmlLangAttribute(lang);
@@ -614,6 +683,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ==================== PRICING MODAL WITH BROWSER HISTORY ====================
+
+    /**
+     * Postavlja history handler za pricing modal
+     */
     function setupPricingHistory() {
         window.addEventListener('load', function () {
             const hash = window.location.hash;
@@ -624,6 +698,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /**
+     * Prikazuje pricing modal sa browser history management
+     */
     function showPricingModal(planId) {
         const modal = document.getElementById('pricing-modal');
         const modalTitle = document.getElementById('pricing-modal-title');
@@ -656,6 +733,9 @@ document.addEventListener('DOMContentLoaded', function () {
         setupPricingModalEventListeners();
     }
 
+    /**
+     * Zatvara pricing modal sa browser history management
+     */
     function closePricingModal() {
         const modal = document.getElementById('pricing-modal');
         if (!modal || modal.style.display === 'none') return;
@@ -671,6 +751,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /**
+     * Postavlja event listenere za pricing modal
+     */
     function setupPricingModalEventListeners() {
         const modal = document.getElementById('pricing-modal');
         const modalBody = modal?.querySelector('.pricing-modal-body');
@@ -701,6 +784,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    /**
+     * Postavlja dugmad za otvaranje pricing modala
+     */
     function setupPricingModalButtons() {
         document.querySelectorAll('[id^="showFullPrice-"]').forEach(btn => {
             btn.addEventListener('click', function () {
@@ -710,6 +796,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /**
+     * Generiše HTML sadržaj za pricing modal
+     */
     function generatePricingContent(pricesKey) {
         const prices = currentPrices[pricesKey];
         const translations = getTranslation(`pricing.modal.prices.${pricesKey}`);
@@ -758,60 +847,84 @@ document.addEventListener('DOMContentLoaded', function () {
         return html;
     }
 
+    // ==================== PARTNERS MARQUEE ====================
+
+    /**
+     * Postavlja partners marquee animaciju
+     */
     function setupPartnersMarquee() {
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const container = document.querySelector(".marquee-inner");
         if (!container) return;
 
         if (prefersReducedMotion) {
-            container.style.transform = "none";
-            container.style.flexWrap = "wrap";
-            container.style.justifyContent = "center";
-            container.style.gap = "2rem";
-            container.style.padding = "2rem";
-            container.style.animation = "none";
-
-            const images = container.querySelectorAll('.ratio');
-            const totalImages = images.length;
-            for (let i = totalImages / 2; i < totalImages; i++) {
-                images[i]?.remove();
-            }
+            setupStaticPartnersLayout(container);
         } else {
-            const clones = container.cloneNode(true);
-            container.appendChild(clones);
-
-            let scrollAmount = 0;
-            let isPaused = false;
-            let animationFrameId;
-
-            function marqueeScroll() {
-                if (!isPaused) {
-                    scrollAmount += 1;
-                    container.style.transform = `translateX(-${scrollAmount}px)`;
-                    if (scrollAmount >= container.scrollWidth / 2) {
-                        scrollAmount = 0;
-                        container.style.transform = `translateX(0px)`;
-                    }
-                }
-                animationFrameId = requestAnimationFrame(marqueeScroll);
-            }
-
-            marqueeScroll();
-
-            const wrapper = document.querySelector(".marquee-wrapper");
-            if (wrapper) {
-                wrapper.addEventListener("mouseenter", () => isPaused = true);
-                wrapper.addEventListener("mouseleave", () => isPaused = false);
-
-                const logos = wrapper.querySelectorAll('.ratio');
-                logos.forEach(logo => {
-                    logo.addEventListener('focus', () => isPaused = true);
-                    logo.addEventListener('blur', () => isPaused = false);
-                });
-            }
+            setupAnimatedMarquee(container);
         }
     }
 
+    /**
+     * Postavlja statički layout za partnere
+     */
+    function setupStaticPartnersLayout(container) {
+        container.style.transform = "none";
+        container.style.flexWrap = "wrap";
+        container.style.justifyContent = "center";
+        container.style.gap = "2rem";
+        container.style.padding = "2rem";
+        container.style.animation = "none";
+
+        const images = container.querySelectorAll('.ratio');
+        const totalImages = images.length;
+        for (let i = totalImages / 2; i < totalImages; i++) {
+            images[i]?.remove();
+        }
+    }
+
+    /**
+     * Postavlja animirani marquee za partnere
+     */
+    function setupAnimatedMarquee(container) {
+        const clones = container.cloneNode(true);
+        container.appendChild(clones);
+
+        let scrollAmount = 0;
+        let isPaused = false;
+        let animationFrameId;
+
+        function marqueeScroll() {
+            if (!isPaused) {
+                scrollAmount += 1;
+                container.style.transform = `translateX(-${scrollAmount}px)`;
+                if (scrollAmount >= container.scrollWidth / 2) {
+                    scrollAmount = 0;
+                    container.style.transform = `translateX(0px)`;
+                }
+            }
+            animationFrameId = requestAnimationFrame(marqueeScroll);
+        }
+
+        marqueeScroll();
+
+        const wrapper = document.querySelector(".marquee-wrapper");
+        if (wrapper) {
+            wrapper.addEventListener("mouseenter", () => isPaused = true);
+            wrapper.addEventListener("mouseleave", () => isPaused = false);
+
+            const logos = wrapper.querySelectorAll('.ratio');
+            logos.forEach(logo => {
+                logo.addEventListener('focus', () => isPaused = true);
+                logo.addEventListener('blur', () => isPaused = false);
+            });
+        }
+    }
+
+    // ==================== STRUCTURED DATA LOADING ====================
+
+    /**
+     * Učitava i ubacuje structured data
+     */
     async function loadAndInjectStructuredData() {
         if (typeof UTILS !== 'undefined' && UTILS.loadStructuredData) {
             try {
@@ -823,21 +936,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function closeLoader() {
-        const loaderWrapper = document.getElementById('loaderWrapper');
-        if (loaderWrapper) {
-            setTimeout(() => {
-                loaderWrapper.style.opacity = '0';
-                loaderWrapper.style.visibility = 'hidden';
-                setTimeout(() => {
-                    if (loaderWrapper.parentNode) {
-                        loaderWrapper.parentNode.removeChild(loaderWrapper);
-                    }
-                }, 1000);
-            }, 500);
-        }
-    }
+    // ==================== INITIALIZATION ====================
 
+    /**
+     * Inicijalizuje celu aplikaciju
+     */
     async function initializeApp() {
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'sr';
 
@@ -847,14 +950,15 @@ document.addEventListener('DOMContentLoaded', function () {
         await loadAndApplyLanguage(savedLanguage);
         checkStickyNavigation();
 
+        // Učitaj structured data
         await loadAndInjectStructuredData();
 
         setupGlobalHistoryHandler();
         setupPricingHistory();
+        setupPricingModalEventListeners();
         setupPricingModalButtons();
         setupPartnersMarquee();
-
-        closeLoader();
+        // FORM SETUP COMPLETELY REMOVED
     }
 
     // ==================== START APPLICATION ====================

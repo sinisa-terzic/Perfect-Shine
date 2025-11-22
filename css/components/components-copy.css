@@ -43,35 +43,38 @@
     opacity: 0;
 }
 
+/* Ostali CSS ostaje isti */
 .callUs {
     position: fixed;
-    width: 28rem;
-    bottom: 0px;
-    right: 0px;
+    width: 25rem;
+    bottom: 0;
+    right: 0;
     z-index: 999;
-    background-color: #FFF3E0;
+    background-color: #ffffff;
+    border-top: 0.3rem solid var(--color-grey-light);
+    border-left: 0.3rem solid var(--color-grey-light);
+    border-radius: var(--space-40) 0 0 0;
     visibility: hidden;
     transform: translateX(100%);
     opacity: 0;
-    border-radius: var(--space-40) 0 0 0;
+    box-shadow: -4px -4px 20px rgba(0, 0, 0, 0.1);
+    /* transition: all 0.3s ease-in-out; */
 }
 
 .callUs-is-open {
     visibility: visible;
     transform: translateX(0);
     opacity: 1;
-    z-index: 10000;
 }
 
+/* Dialog Title */
 .callUs p {
     font-size: 2rem;
-    font-weight: 600;
-    color: #121212;
+    font-weight: 700;
+    color: var(--color-red-light);
     padding: var(--space-15) var(--space-20);
-    margin: 0px;
+    margin: 0;
     border-bottom: 1px solid var(--color-grey-light);
-    background: #fdb81e;
-    border-radius: var(--space-40) 0 0 0;
 }
 
 /* Close Button */
@@ -92,26 +95,28 @@
     transform: scale(1.1);
 }
 
+/* Call Options */
 .call-options1 {
     position: absolute;
     color: black;
     text-decoration: none;
-    top: 7rem;
-    left: 1rem;
+    top: 5.2rem;
+    left: 0;
+    padding: 1.4rem;
     font-size: 1.7rem;
     flex-direction: column;
-    gap: 2.2rem;
+    gap: 1.8rem;
     font-weight: 600;
 }
 
 /* Social Media Links */
 .callUs_Social {
     position: absolute;
-    bottom: var(--space-50);
+    left: var(--space-10);
+    bottom: var(--space-10);
+    gap: var(--space-15);
     display: flex;
     align-items: center;
-    gap: 2rem;
-    left: 1.2rem;
 }
 
 .callUs_Social img {
@@ -124,17 +129,6 @@
     width: 100%;
     height: auto;
     display: block;
-}
-
-.callUsNumber {
-    font-size: 2rem;
-    padding: 1rem;
-    text-align: center;
-    color: #121212;
-    font-weight: 600;
-    letter-spacing: 2px;
-    background-color: #fdb81e;
-    border-top: 1px solid #ffffff;
 }
 
 /* Animation for call options */
