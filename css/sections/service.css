@@ -2,7 +2,8 @@
 ******************************************* */
 /* services section */
 .services {
-    column-gap: 3.5rem;
+    column-gap: 6.4rem;
+    row-gap: 9.6rem;
 }
 
 .service {
@@ -11,7 +12,6 @@
     border-radius: 11px;
     overflow: hidden;
     transition: all 0.4s;
-    line-height: normal;
 }
 
 .service-photo-link {
@@ -34,18 +34,19 @@
 }
 
 .service-content {
-    padding: 1rem 2.5rem 2rem 1rem;
+    padding: 2.2rem 4.8rem 3.2rem 2rem;
 }
 
 .activities {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .activity {
     display: inline-block;
-    padding: 0.2rem 0.4rem;
+    padding: 0.5rem 0.8rem;
+    /* font-size: 1.1rem; */
     text-transform: uppercase;
     color: #fff;
     border-radius: 4px;
@@ -73,21 +74,21 @@
     font-weight: 600;
     padding-bottom: 0.6rem;
     border-bottom: 1px solid #100c35;
-    margin-bottom: 2.4rem;
+    margin-bottom: 3.2rem;
 }
 
 .activity-attributes {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .activity-attribute {
-    font-size: 1.2rem;
+    /* font-size: 1.8rem; */
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.6rem;
     font-weight: 600;
 }
 
@@ -99,27 +100,28 @@
 
 .info-services {
     background-color: #fdf2e9;
-    padding: 3rem;
+    padding: 5rem;
+    line-height: 2.5rem;
     border-radius: 2rem;
     position: relative;
 }
 
 .service-icon {
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 3.4rem;
+    width: 3.4rem;
     color: #981b1e;
 }
 
 /* features service section */
 .features {
-    column-gap: 4rem;
+    column-gap: 4.8rem;
     row-gap: 6.4rem;
 }
 
 .feature-title {
     font-weight: 700;
-    margin-top: 1rem;
-    margin-bottom: 1.4rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
     position: relative;
     display: inline-block;
     padding-bottom: 5px;
@@ -150,7 +152,8 @@
 
 .feature-text {
     line-height: 1.8;
-    gap: 0.6rem;
+    gap: 1rem;
+    /* align-items: center; */
 }
 
 
@@ -191,6 +194,7 @@
     background-color: var(--color-accent-yellow);
     color: var(--color-dark);
     font-weight: 700;
+    font-size: 2rem;
     transition: all 0.2s;
     text-transform: uppercase;
     border-top: 2px solid var(--color-white);
@@ -209,8 +213,8 @@
 }
 
 .list-icon {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 3rem;
+    height: 3rem;
     color: var(--icon-blue);
     color: #205493;
 }

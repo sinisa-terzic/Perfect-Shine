@@ -98,12 +98,12 @@
 #scroll-down-arrow {
     position: absolute;
     bottom: 7rem;
-    width: 4rem;
-    height: 4rem;
+    width: 6rem;
+    height: 6rem;
     margin: 0 auto;
     left: 0;
     right: 0;
-    border: 0.3rem solid #fff;
+    border: 0.5rem solid #fff;
     border-radius: 100%;
     animation: bounce 2s infinite running;
 }
@@ -120,14 +120,14 @@
 #scroll-down-arrow::before {
     position: absolute;
     content: '';
-    width: 1rem;
-    height: 1rem;
+    width: 2rem;
+    height: 2rem;
     left: 0;
     right: 0;
     top: 1rem;
     margin: 0 auto;
-    border-left: 0.3rem solid #fff;
-    border-bottom: 0.3rem solid #fff;
+    border-left: 0.5rem solid #fff;
+    border-bottom: 0.5rem solid #fff;
     transform: rotate(-45deg);
 }
 
