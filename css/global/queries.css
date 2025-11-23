@@ -563,6 +563,15 @@
     font-size: 2rem;
   }
 
+  .contact-maps h3 {
+    margin-bottom: 2.4rem;
+  }
+
+  .contact-maps p,
+  .contact-maps a {
+    margin-bottom: 2rem;
+  }
+
   /*  ===   PARTNERSS  ===
 ******************************* */
   .partners-description {
