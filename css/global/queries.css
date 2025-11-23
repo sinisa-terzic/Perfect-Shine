@@ -494,6 +494,11 @@
     margin-bottom: 3rem;
   }
 
+  .about-description {
+    line-height: normal;
+    letter-spacing: normal;
+  }
+
   .lead {
     font-size: 1.8rem;
   }
