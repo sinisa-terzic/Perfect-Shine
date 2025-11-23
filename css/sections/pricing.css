@@ -168,7 +168,7 @@ input:checked+.chtext {
 }
 
 .price-list-footer button.pulse {
-    animation: buttonPulse 0.2s ease-in-out 2;
+    animation: buttonPulse 0.2s ease-in-out 3;
 }
 
 @keyframes buttonPulse {
