@@ -256,8 +256,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const button = document.getElementById(`showFullPrice-${sectionId}`);
         if (button) {
+            button.classList.remove('pulse');
+            void button.offsetWidth; // force reflow
             button.classList.add('pulse');
-            setTimeout(() => button.classList.remove('pulse'), 400);
+
+            setTimeout(() => {
+                button.classList.remove('pulse');
+            }, 600);
         }
     }
 
