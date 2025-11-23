@@ -153,10 +153,8 @@
 .feature-text {
     line-height: 1.8;
     gap: 1rem;
-    /* align-items: center; */
+    align-items: center;
 }
-
-
 
 /*  ===  image effects darkening-effect  ===  */
 .darkening-effect {
