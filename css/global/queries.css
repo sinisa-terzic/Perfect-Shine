@@ -494,6 +494,14 @@
     margin-bottom: 3rem;
   }
 
+  .lead {
+    font-size: 2rem;
+  }
+
+  .aboutUs .p {
+    font-size: 1.8rem;
+  }
+
   /*  ===  GALLERY  ===
 ******************************* */
 
@@ -549,28 +557,12 @@
 
   /*  ===  SERVICES  ===
 ******************************* */
-  /*   .logos {
-    animation: marquee 25s linear infinite;
-    gap: 8rem;
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(160%);
-    }
-
-    100% {
-      transform: translateX(-160%);
-    }
-  } */
-
-  /*   .logos img {
-    height: 3.8rem;
-  } */
-
 
   /*  ===  CONTACT  ===
 ******************************* */
+  .info-block {
+    display: block;
+  }
 
   /*  ===  FOOTER  ===
 ******************************* */
