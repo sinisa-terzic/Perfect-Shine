@@ -563,9 +563,18 @@
     font-size: 2rem;
   }
 
-
-  /*  ===  SERVICES  ===
+  /*  ===   PARTNERSS  ===
 ******************************* */
+  .partners-description {
+    font-size: 1.5rem;
+  }
+
+  .cta {
+    margin-top: 4rem;
+    background-color: #ffb5cd;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+  }
 
   /*  ===  CONTACT  ===
 ******************************* */
