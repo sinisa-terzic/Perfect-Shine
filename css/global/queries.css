@@ -593,6 +593,10 @@
 
   /*  ===  FOOTER  ===
 ******************************* */
+  .footer-link:link,
+  .footer-link:visited {
+    font-size: 1.8rem;
+  }
 
 }
 
