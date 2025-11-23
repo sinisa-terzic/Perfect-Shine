@@ -170,7 +170,7 @@ input:checked+.chtext {
 
 /* Dodaj ovo u pricing.css */
 .price-list-footer button.pulse {
-    animation: buttonPulse 0.4s ease-in-out 2;
+    animation: buttonPulse 0.2s ease-in-out 2;
 }
 
 @keyframes buttonPulse {
