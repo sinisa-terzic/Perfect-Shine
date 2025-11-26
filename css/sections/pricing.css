@@ -161,7 +161,7 @@ input:checked+.chtext {
     margin-top: 15px;
     cursor: pointer;
     border-radius: 18px;
-    border: 1px solid #595959;
+    border: 2px solid #595959;
     font-size: 1.6rem;
     font-weight: 500;
     transform-origin: center;
