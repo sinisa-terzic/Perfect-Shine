@@ -98,6 +98,7 @@
         }
     },
     "features": {
+        "title": "Oprema koju koristimo",
         "feature1": {
             "title": "Airbox Cleaner IV",
             "points": {
@@ -369,7 +370,7 @@
     },
     "contact": {
         "title": "Lokacija",
-        "sendEmail": "Pošalji imejl",
+        "sendEmail": "Pošaljite poruku",
         "address": "Adresa",
         "namePlaceholder": "Vaše ime *",
         "phonePlaceholder": "Telefon *",
@@ -382,8 +383,8 @@
         "success": "Poruka je uspešno poslata! Kontaktiraćemo vas uskoro.",
         "validation": {
             "required": "Sva polja su obavezna.",
-            "subjectLength": "Tema mora imati najmanje 2 karaktera i sadržati smislen tekst.",
-            "subjectRandom": "Tema ne smije sadržavati nasumičan tekst, ponavljajuće karaktere ili izolovana slova.",
+            "subjectLength": "Ime mora imati najmanje 2 karaktera",
+            "subjectRandom": "Unesite vaše pravo ime",
             "phoneInvalid": "Unesite ispravan broj telefona (mobilni: 067 123 456, fiksni: 032 123 456)",
             "messageLength": "Poruka mora imati najmanje 5 karaktera i sadržati smislen tekst.",
             "messageRandom": "Poruka ne smije sadržavati nasumičan tekst, ponavljajuće karaktere ili izolovana slova."

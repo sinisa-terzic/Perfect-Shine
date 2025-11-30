@@ -341,7 +341,7 @@
     </div>
 
     <!-- SEVICES ================================== -->
-    <section class="pt-90 mb-90 section-services" id="services">
+    <section class="pt-90 section-services" id="services">
 
         <div class="container">
             <span class="subheading" data-i18n="services.subheading">usluge dubinskog pranja tivat, kotor, budva</span>
@@ -613,11 +613,13 @@
 
 
     <!-- FEATURE ================================== -->
-    <section id="featuree" class="mb-90">
+    <section class="mb-90">
         <!-- border dots 2 row -->
-        <div class="mt-90 mb-90 container">
-            <img class="img" src="img/border/border-sm.png" alt="Border for page">
+        <div id="featuree" class="container pt-90"">
+            <img class=" img" src="img/border/border-sm.png" alt="Border for page">
         </div>
+
+        <h2 class="container features-title" data-i18n="features.title">Oprema koju koristimo</h2>
 
         <!-- uređaji i spektar posla -->
         <div class="container grid col-4 features" id="feature">
@@ -1016,39 +1018,45 @@
                 <div class="info">
                     <h3 class="h3" data-i18n="contact.sendEmail">Pošalji imejl</h3>
 
-                    <form class="info" method="" action="" autocomplete="off">
-                        <!-- name -->
+                    <form class="info" method="POST" action="send_message.php" autocomplete="off">
+                        <!-- Honeypot field za spam zaštitu -->
+                        <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
+
+                        <!-- Hidden polje za trenutni jezik -->
+                        <input type="hidden" name="current_language" id="current_language" value="sr">
+
+                        <!-- subject (ime) -->
                         <div class="input-wrapper">
-                            <input placeholder="Subject" type="text" name="subject" class="info"
-                                data-i18n-placeholder="contact.namePlaceholder" minlength="2" maxlength="100" disabled>
+                            <input type="text" name="subject" class="info"
+                                data-i18n-placeholder="contact.namePlaceholder" minlength="2" maxlength="100">
                             <button type="button" class="clear-input" aria-label="Clear input">×</button>
                         </div>
+
                         <!-- phone -->
                         <div class="input-wrapper">
-                            <input placeholder="Phone" type="tel" name="phone" class="info"
-                                data-i18n-placeholder="contact.phonePlaceholder" pattern="[\d\s\+\-\(\)]{6,20}"
-                                disabled>
+                            <input type="tel" name="phone" class="info" data-i18n-placeholder="contact.phonePlaceholder"
+                                pattern="[\d\s\+\-\(\)]{6,20}">
                             <button type="button" class="clear-input" aria-label="Clear input">×</button>
                         </div>
+
                         <!-- message -->
                         <div class="textarea-wrapper">
-                            <textarea placeholder="Message" name="message" rows="4" class="info"
-                                data-i18n-placeholder="contact.messagePlaceholder" minlength="5" maxlength="2000"
-                                disabled></textarea>
+                            <textarea name="message" rows="4" class="info"
+                                data-i18n-placeholder="contact.messagePlaceholder" minlength="5"
+                                maxlength="2000"></textarea>
                             <button type="button" class="clear-input" aria-label="Clear input">×</button>
                         </div>
+
                         <!-- sendMsg Btn -->
-                        <button type="submit" class="sendMsg" data-i18n="contact.noData" disabled>Trenutno nije dostupno
-                            !</button>
+                        <button type="submit" class="sendMsg" data-i18n="contact.sendButton">Pošalji poruku</button>
                     </form>
 
                     <h3 class="h3" data-i18n="contact.address">Adresa</h3>
-                    <p class="p">Radanovići bb, Ruska garaža</p>
-                    <p class="p">85 300 Kotor, Crna Gora</p>
+                    <p class="p"><ion-icon name="location-outline"></ion-icon> Radanovići bb, Ruska garaža</p>
+                    <p class="p"><ion-icon name="locate-outline"></ion-icon> 85 300 Kotor, Crna Gora</p>
                     <p class="p entypo-phone"><ion-icon name="call-outline"></ion-icon> <a href="tel:+38268069211">+382
-                            68 069 211</a> <span class="info-block">&nbsp;&nbsp;&nbsp;</span> <ion-icon
-                            name="mail-outline"></ion-icon>
-                        info@perfectshine.me
+                            68 069 211</a> <span class="info-block">&nbsp;</span> <ion-icon
+                            name="mail-outline"></ion-icon> info@perfectshine.me
                     </p>
                 </div>
             </div>
@@ -1186,8 +1194,10 @@
     <!-- OPTIMALAN REDOSLED -->
     <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/form-validation.js"></script>
     <script src="js/main.js"></script>
     <script src="js/gallery.js"></script>
+
 
 </body>
 

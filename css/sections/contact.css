@@ -28,7 +28,7 @@
 .maps {
     background-color: #a5b2c0;
     grid-column: 1/2;
-    height: 45rem;
+    height: 46rem;
 }
 
 .contact-maps {
@@ -41,17 +41,19 @@
 
 .contact-maps .p {
     font-size: 1.5rem;
+    display: flex;
+    gap: 6px;
 }
 
 .contact-maps p,
 .contact-maps a {
     font-weight: 100;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.5rem;
     text-decoration: none;
 }
 
 .contact-maps h3 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 1.5rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -65,13 +67,13 @@
 }
 
 .contact-maps h3 {
-    color: #e6e6fa;
+    color: #d1d6de;
 }
 
 form {
     border-bottom: solid thin #8e9699;
     margin: 0 0 2rem 0;
-    padding: 1rem 0 2rem 0;
+    padding: 0 0 2rem 0;
 }
 
 .sendMsg,
@@ -223,13 +225,6 @@ form textarea {
     }
 }
 
-/* Contact Form Styles */
-.sendMsg:disabled {
-    background-color: #282f39 !important;
-    cursor: not-allowed !important;
-    color: #b0b7c0;
-}
-
 /* Contact Form Validation Styles */
 .form-notification {
     position: fixed;
@@ -245,6 +240,7 @@ form textarea {
     animation: slideIn 0.3s ease-out;
     font-family: inherit;
     font-size: 1.4rem;
+    background-color: #dc3545;
 }
 
 .form-notification-success {
@@ -293,15 +289,16 @@ form textarea {
 /* Loading State */
 .sendMsg:disabled {
     opacity: 0.6;
+    text-transform: uppercase;
     cursor: not-allowed;
     background-color: #282f39 !important;
-    color: #b0b7c0;
+    color: #c5ccd6;
+    font-weight: 400;
 }
 
 .sendMsg.loading {
     position: relative;
-    /* color: transparent !important; */
-    color: #b0b7c0;
+    color: #c5ccd6;
 }
 
 .sendMsg.loading::after {
@@ -432,4 +429,20 @@ form textarea {
 .textarea-wrapper textarea:not(:placeholder-shown)+.clear-textarea {
     opacity: 1;
     visibility: visible;
+}
+
+/* === RATE LIMITING STYLES - ONLY ADDITIONS === */
+.sendMsg.rate-limited {
+    background-color: #6b7280 !important;
+}
+
+form.rate-limited {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+form.rate-limited input,
+form.rate-limited textarea {
+    background-color: #374151 !important;
+    cursor: not-allowed;
 }

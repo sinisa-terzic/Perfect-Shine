@@ -672,8 +672,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         updateLanguageDisplay(lang);
         setupRadioPrices();
+
+        // AŽURIRAJ FORM VALIDATION JEZIK
+        if (typeof FORM_VALIDATION !== 'undefined') {
+            FORM_VALIDATION.setCurrentLanguage(lang);
+            FORM_VALIDATION.updateExistingValidationErrors();
+        }
+
         localStorage.setItem('preferredLanguage', lang);
     }
+
 
     /**
      * Mijenja jezik sajta
@@ -681,14 +689,25 @@ document.addEventListener('DOMContentLoaded', function () {
     async function changeLanguage(lang) {
         if (lang === currentLanguage) return;
 
-        showLanguageLoading(lang);  // PROSLEDI JEZIK
+        showLanguageLoading(lang);
 
         try {
-            // Kratka zadrška od 300ms da se vidi loader
             await new Promise(resolve => setTimeout(resolve, 300));
 
             updateHtmlLangAttribute(lang);
             await loadAndApplyLanguage(lang);
+
+            // ✅ DODAJTE OVO: AŽURIRAJ HIDDEN POLJE
+            const languageField = document.getElementById('current_language');
+            if (languageField) {
+                languageField.value = lang;
+            }
+
+            // Ažuriraj form validation
+            if (typeof FORM_VALIDATION !== 'undefined') {
+                FORM_VALIDATION.setCurrentLanguage(lang);
+            }
+
             UTILS.addHidden(language);
             headerEl.classList.remove("nav-open");
         } catch (error) {
@@ -697,6 +716,7 @@ document.addEventListener('DOMContentLoaded', function () {
             hideLanguageLoading();
         }
     }
+
 
     // ==================== PRICING MODAL WITH BROWSER HISTORY ====================
 
@@ -952,15 +972,26 @@ document.addEventListener('DOMContentLoaded', function () {
         setupRadioPrices();
         updateLanguageDisplay(savedLanguage);
         await loadAndApplyLanguage(savedLanguage);
+
+        // ✅ DODAJTE OVO: POSTAVI POČETNU VRIJEDNOST HIDDEN POLJA
+        const languageField = document.getElementById('current_language');
+        if (languageField) {
+            languageField.value = savedLanguage;
+        }
+
         checkStickyNavigation();
 
-        // Učitaj structured data
         await loadAndInjectStructuredData();
 
-        setupHistoryManagement(); // Konsolidovana history management funkcija
+        setupHistoryManagement();
         setupPricingModalButtons();
         setupPartnersMarquee();
-        // FORM SETUP COMPLETELY REMOVED
+
+        // POSTAVI FORM VALIDATION SA TAČNIM JEZIKOM
+        if (typeof FORM_VALIDATION !== 'undefined') {
+            FORM_VALIDATION.setCurrentLanguage(savedLanguage);
+            FORM_VALIDATION.setupContactForm();
+        }
     }
 
     // ==================== START APPLICATION ====================

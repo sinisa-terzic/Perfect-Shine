@@ -55,6 +55,14 @@ select {
     color: inherit;
 }
 
+/* Stil za input polje kada je u fokusu */
+input:focus,
+textarea:focus,
+select:focus {
+    border: 1px solid #8c99ad;
+    outline: none;
+}
+
 /* Better button reset */
 button {
     background: none;

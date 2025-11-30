@@ -113,6 +113,22 @@
 }
 
 /* features service section */
+.features-title {
+    padding: 2.5rem 0rem 5rem 0rem;
+    font-size: 2.5rem;
+    color: #635270;
+}
+
+.features-title:after {
+    display: block;
+    height: 1px;
+    background-color: #635270;
+    content: " ";
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
 .features {
     column-gap: 4.8rem;
     row-gap: 6.4rem;

@@ -95,6 +95,7 @@
         }
     },
     "features": {
+        "title": "Equipment We Use",
         "feature1": {
             "title": "Airbox Cleaner IV",
             "points": {
@@ -369,7 +370,7 @@
     },
     "contact": {
         "title": "Location",
-        "sendEmail": "Send email",
+        "sendEmail": "Send a message",
         "address": "Address",
         "namePlaceholder": "Your name *",
         "phonePlaceholder": "Phone *",
@@ -382,8 +383,8 @@
         "success": "Message sent successfully! We'll contact you soon.",
         "validation": {
             "required": "All fields are required.",
-            "subjectLength": "Subject must have at least 2 characters and contain meaningful text.",
-            "subjectRandom": "Subject should not contain random text, repeating characters or isolated letters.",
+            "subjectLength": "Name must be at least 2 characters long",
+            "subjectRandom": "Please enter your real name",
             "phoneInvalid": "Please enter a valid phone number (mobile: 067 123 456, landline: 032 123 456)",
             "messageLength": "Message must have at least 5 characters and contain meaningful text.",
             "messageRandom": "Message should not contain random text, repeating characters or isolated letters."
