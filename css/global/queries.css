@@ -272,7 +272,7 @@
   .contact-maps {
     grid-column: 1/-1;
     grid-row: auto;
-    padding: 5rem 2rem;
+    padding: 5rem 2rem 0;
   }
 
   .footer-maps {

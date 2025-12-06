@@ -46,7 +46,7 @@
     font-size: 3rem;
     font-weight: 500;
     margin-right: 0.8rem;
-    align-content: end;
+    align-content: flex-end;
     margin-bottom: 0.3rem;
 }
 
@@ -170,7 +170,7 @@ input:checked+.chtext {
 }
 
 .price-list-footer button.pulse {
-    animation: pricing-btn-pulse 0.2s ease-in-out 1;
+    animation: pricing-btn-pulse 0.2s ease-in-out 2;
 }
 
 @keyframes pricing-btn-pulse {

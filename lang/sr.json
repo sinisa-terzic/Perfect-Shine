@@ -359,7 +359,7 @@
                 ]
             },
             "footer": {
-                "note": "<strong>Napomena:</strong> &nbsp; Cijene su okvirne i mogu varirati u zavisnosti od stanja i kompleksnosti posla. Konačna cijena se utvrđuje nakon uviđaja."
+                "note": "<strong>Napomena:</strong> &nbsp; Cijene su okvirne i mogu varirati u zavisnosti od stanja i kompleksnosti posla. Konačna cijena se utvrđuje nakon uviđaja. Sve cijene u ponudi uključuju PDV u zakonskoj visini."
             }
         }
     },
@@ -376,7 +376,7 @@
         "phonePlaceholder": "Telefon *",
         "messagePlaceholder": "Vaša poruka... *",
         "sendButton": "Pošalji",
-        "enterData": "Unesite podatke",
+        "enterData": "UNESITE PODATKE",
         "noData": "Trenutno nije dostupno !",
         "sending": "Slanje...",
         "error": "Došlo je do greške. Pokušajte ponovo.",

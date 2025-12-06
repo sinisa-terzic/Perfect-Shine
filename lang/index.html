@@ -53,28 +53,27 @@
 
 <body>
     <!-- Loader -->
-    <div class="loader-wrapper" id="loaderWrapper" aria-live="polite" aria-label="Učitavanje stranice">
+    <div class="loader-wrapper" id="loaderWrapper">
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
-        <div class="loader" role="status"></div>
+        <div class="loader"></div>
         <div class="loader-image">
-            <img src="img/logo/logo.svg" alt="Logo loader center" width="100" height="80" loading="eager">
+            <img src="img/logo/logo.svg" alt="Logo loader center">
         </div>
     </div> <!-- end Loader -->
 
 
     <!-- HEADER ================================== -->
-    <header class="header" id="header" role="banner">
+    <header class="header" id="header">
         <div class="nav flex justify-between pt-25 pr-20 pl-20">
             <!-- VELIKI LOGO (logo) i MALI LOGO (logo-sm) -->
-            <a href="#hero" aria-label="Perfect Shine - Početna stranica">
-                <img class="logo" width="100" height="80" alt="Dubinsko pranje logo" src="img/logo/logo.svg"
-                    loading="eager">
-                <img class="logo-sm hidden" width="100" height="7" alt="Dubinsko pranje logo" src="img/logo/logo-sm.svg"
-                    loading="eager">
+            <a href="#hero">
+                <img class="logo" width="100" height="80" alt="Dubinsko pranje logo" src="img/logo/logo.svg">
+                <img class="logo-sm hidden" width="100" height="7" alt="Dubinsko pranje logo"
+                    src="img/logo/logo-sm.svg">
             </a>
 
-            <nav class="main-nav" role="navigation" aria-label="Glavna navigacija">
+            <nav class="main-nav">
                 <div class="main-nav-list flex align-center">
                     <a class="main-nav-link" href="#services" data-i18n="nav.services">Usluge</a>
                     <a class="main-nav-link" href="#gallerySection" data-i18n="nav.gallery">Galerija</a>
@@ -82,22 +81,21 @@
                     <a class="main-nav-link" href="#contact" data-i18n="nav.contact">Kontakt</a>
 
                     <!-- Dugme za promenu jezika -->
-                    <button id="languageImg" class="language-btn" type="button" aria-label="Promijeni jezik"
-                        aria-haspopup="true" aria-expanded="false">
-                        <img src="img/flag/mne+.svg" alt="Srpski" width="24" height="24" loading="lazy">
+                    <button id="languageImg" class="language-btn" type="button">
+                        <img src="img/flag/mne+.svg" alt="Srpski" width="24" height="24">
                     </button>
 
                     <!-- PADAJUĆI MENI -->
-                    <div class="language flex gap-5 hidden" role="menu" aria-labelledby="languageImg">
-                        <button class="flagLink" data-lang-code="sr" role="menuitem">
+                    <div class="language flex gap-5 hidden">
+                        <button class="flagLink" data-lang-code="sr">
                             <img class="flag" src="img/flag/mne.svg" alt="Srpski" width="20" height="20">
                             Crnogorski
                         </button>
-                        <button class="flagLink" data-lang-code="en" role="menuitem">
+                        <button class="flagLink" data-lang-code="en">
                             <img class="flag" src="img/flag/eng.svg" alt="English" width="20" height="20">
                             English
                         </button>
-                        <button class="flagLink" data-lang-code="ru" role="menuitem">
+                        <button class="flagLink" data-lang-code="ru">
                             <img class="flag" src="img/flag/rus.svg" alt="Русский" width="20" height="20">
                             Русский
                         </button>
@@ -106,77 +104,63 @@
                 </div>
             </nav>
 
-            <button class="btn-mobile-nav hidden" aria-label="Meni za mobilni uredjaj" aria-expanded="false"
-                aria-controls="main-nav">
-                <ion-icon class="icon-mobile-nav" name="menu-outline" aria-hidden="true"></ion-icon>
-                <ion-icon class="icon-mobile-nav close hidden" name="close-outline" aria-hidden="true"></ion-icon>
+            <button class="btn-mobile-nav hidden">
+                <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+                <ion-icon class="icon-mobile-nav close hidden" name="close-outline"></ion-icon>
             </button>
         </div>
     </header> <!-- END HEADER -->
 
 
     <!-- HERO ================================== -->
-    <section class="hero grid" id="hero" role="region" aria-labelledby="hero-title">
+    <section class="hero grid" id="hero">
         <div class="hero-text-box">
-            <h1 class="h1" id="hero-title" data-i18n="hero.title">DUBINSKO PRANJE</h1>
+            <h1 class="h1" data-i18n="hero.title">DUBINSKO PRANJE</h1>
 
-            <p class="hero-services" aria-label="Usluge dubinskog pranja">
+            <p>
                 <span data-i18n="hero.item1">Automobila</span>
-                <span class="hero-text-box-icon" aria-hidden="true">
+                <span class="hero-text-box-icon">
                     &nbsp;
-                    <img class="header-icon" src="img/icon/header-icon.svg" alt="" width="16" height="16"
-                        loading="lazy">
+                    <img class="header-icon" src="img/icon/header-icon.svg" alt="cristal clear icon">
                     &nbsp;
                 </span>
                 <span data-i18n="hero.item2">Garnitura</span>
-                <span class="hero-text-box-icon" aria-hidden="true">
+                <span class="hero-text-box-icon">
                     &nbsp;
-                    <img class="header-icon" src="img/icon/header-icon.svg" alt="" width="16" height="16"
-                        loading="lazy">
+                    <img class="header-icon" src="img/icon/header-icon.svg" alt="cristal clear icon">
                     &nbsp;
                 </span>
                 <span data-i18n="hero.item3">Itisona</span>
-                <span class="hero-text-box-icon" aria-hidden="true">
+                <span class="hero-text-box-icon">
                     &nbsp;
-                    <img class="header-icon" src="img/icon/header-icon.svg" alt="" width="16" height="16"
-                        loading="lazy">
+                    <img class="header-icon" src="img/icon/header-icon.svg" alt="cristal clear icon">
                     &nbsp;
                 </span>
                 <span data-i18n="hero.item4">Dušeka</span>
             </p>
 
-            <div class="call-us top-left-radius" role="complementary" aria-label="Kontakt informacije">
-                <span class="call-us-text" data-i18n="callUs.prompt">Nazovite ili pošaljite SMS:</span>
-                <span class="call-us-icon" aria-hidden="true">
+            <div class="call-us top-left-radius">
+                <span class="call-us-text" data-i18n="callUs.prompt">Nazovite ili pošaljite
+                    SMS:
+                </span>
+                <span class="call-us-icon">
                     ☎&nbsp;
                 </span>
 
-                <button class="phone-number" data-i18n="callUs.number" aria-label="Pozovite broj +382 68 069 211">+382
-                    68 069 211</button>
+                <button class="phone-number" data-i18n="callUs.number">+382 68 069 211</button>
 
-                <div class="call-options flex hidden" role="menu" aria-label="Opcije za kontakt">
-                    <a href="tel:+38268069211" class="call-option flex gap-10 align-center" role="menuitem">
-                        <img src="img/call/viber_152851.png" alt="Pozovite telefonom" width="32" height="32"
-                            loading="lazy">
-                        Phone
-                    </a>
-                    <a href="viber://add?number=%2B38268069211" class="call-option flex gap-10 align-center"
-                        role="menuitem">
-                        <img src="img/call/viber_2504948.png" alt="Kontaktirajte putem Vibera" width="32" height="32"
-                            loading="lazy">
-                        Viber
-                    </a>
-                    <a href="https://wa.me/38268069211" class="call-option flex gap-10 align-center" role="menuitem">
-                        <img src="img/call/whatsapp_3536445.png" alt="Pošaljite poruku na WhatsApp" width="32"
-                            height="32" loading="lazy">
-                        WhatsApp
-                    </a>
+                <div class="call-options flex hidden">
+                    <a href="tel:+38268069211" class="call-option flex gap-10 align-center"><img
+                            src="img/call/viber_152851.png" alt="phone" width="128" height="128">Phone</a>
+                    <a href="viber://add?number=%2B38268069211" class="call-option flex gap-10 align-center"><img
+                            src="img/call/viber_2504948.png" alt="viber" width="128" height="128"> Viber</a>
+                    <a href="https://wa.me/38268069211" class="call-option flex gap-10 align-center"><img
+                            src="img/call/whatsapp_3536445.png" alt="whatsapp" width="128" height="128"> WhatsApp</a>
                 </div>
             </div>
 
-            <a id="scroll-down-arrow" href="#about" class="scroll-down-link" aria-label="Saznajte više o nama">
-                <span class="scroll-down-arrow" data-i18n="hero.aboutLink">About</span>
-            </a>
+            <a id="scroll-down-arrow" href="#about"><span class="scroll-down-arrow"
+                    data-i18n="hero.aboutLink">About</span></a>
         </div>
     </section> <!-- END HERO -->
 
@@ -216,15 +200,15 @@
 
 
     <!-- ABOUT ================================== -->
-    <section class="section-about pt-90 mb-90 grid col-40-60" id="about" role="region" aria-labelledby="about-title">
+    <section class="section-about pt-90 mb-90 grid col-40-60" id="about">
         <div class="clear-effect">
             <img class="img about-photo" width="770" height="650" src="img/about/puzi-hero+.webp"
-                alt="Perfect Shine - servis za dubinsko pranje" loading="lazy">
+                alt="Perfect Shine - servis za dubinsko pranje">
         </div>
 
         <div class="aboutUs">
             <span class="subheading" data-i18n="about.subheading">Dubinsko pranje Tivat, Kotor, Budva</span>
-            <h2 class="h2" id="about-title" data-i18n="about.title">Perfect Shine - servis za dubinsko pranje</h2>
+            <h2 class="h2" data-i18n="about.title">Perfect Shine - servis za dubinsko pranje</h2>
 
             <div class="about-description grid gap-10">
                 <h3 class="lead text-i" data-i18n-html="about.lead">
@@ -232,16 +216,14 @@
                 </h3>
 
                 <p class="p text-i" data-i18n-html="about.description1">
-                    &nbsp;<span style="color: #635270; font-size: 1.5rem;"
-                        aria-hidden="true">&#9733;</span>&nbsp;&nbsp;Dubinsko pranje je
+                    &nbsp;<span style="color: #635270; font-size: 1.5rem;">&#9733;</span>&nbsp;&nbsp;Dubinsko pranje je
                     vrsta mašinskog pranja pri kojem sredstva dopiru i do najdubljih slojeva tkanine, kako bi efikasno
                     uklonila nečistoće iz materijala. Zatim se nečistoće izvlače iz materijala, a za taj proces se
                     koriste profesionalne mašine i savremena, neškodljiva biorazgradiva sredstva
                 </p>
 
                 <p class="p text-i" data-i18n-html="about.description2">
-                    &nbsp;<span style="color: #635270; font-size: 1.5rem;"
-                        aria-hidden="true">&#9733;</span>&nbsp;&nbsp;Naš tim garantuje
+                    &nbsp;<span style="color: #635270; font-size: 1.5rem;">&#9733;</span>&nbsp;&nbsp;Naš tim garantuje
                     kvalitet i preciznost u dubinskom čišćenju automobila, garnitura, dušeka i itisona. Koristimo <a
                         href="#featuree" class="link">savremenu opremu i ekološki prihvatljiva sredstva</a> koja u
                     potpunosti uklanjaju nečistoće iz dubokih slojeva materijala, a da pri tome štitimo vaše zdravlje i
@@ -249,16 +231,14 @@
                 </p>
 
                 <p class="p text-i" data-i18n-html="about.description3">
-                    &nbsp;<span style="color: #635270; font-size: 1.8rem;"
-                        aria-hidden="true">&#9830;</span>&nbsp;&nbsp;<strong class="highlighting">Pružamo usluge širom
-                        crnogorskog primorja - pozovite nas za besplatnu
+                    &nbsp;<span style="color: #635270; font-size: 1.8rem;">&#9830;</span>&nbsp;&nbsp;<strong
+                        class="highlighting">Pružamo usluge širom crnogorskog primorja - pozovite nas za besplatnu
                         procjenu i uvjerite se u kvalitet našeg rada!</strong>
                 </p>
             </div>
 
             <div class="btn-aboutUs">
-                <a href="#services" class="btn btn--full" data-i18n="about.button"
-                    aria-label="Saznajte više o našim uslugama">Saznajte više &#187;</a>
+                <a href="#services" class="btn btn--full" data-i18n="about.button">Saznajte više &#187;</a>
             </div>
         </div>
     </section> <!-- END ABOUT -->
@@ -298,36 +278,30 @@
     </div>
 
     <!-- GALLERY ================================== -->
-    <section class="gallery-container pt-90 pb-90" id="gallerySection" role="region" aria-labelledby="gallery-title">
+    <section class="gallery-container pt-90 pb-90" id="gallerySection">
 
-        <span class="subheading text-c" id="gallery-title" data-i18n="gallery.subheading">Galerija</span>
+        <span class="subheading text-c" data-i18n="gallery.subheading">Galerija</span>
 
         <!-- Galerija -->
-        <div id="gallery" class="gallery" role="list" aria-label="Galerija slika"></div>
+        <div id="gallery" class="gallery"></div>
 
         <!-- Modal -->
-        <div id="gallery-modal" class="gallery-modal" role="dialog" aria-modal="true"
-            aria-labelledby="gallery-modal-title" aria-hidden="true">
+        <div id="gallery-modal" class="gallery-modal">
             <div class="gallery-modal-content">
                 <!-- Navigacijske strelice -->
-                <button id="gallery-prev-btn" class="gallery-nav-btn" title="Prethodna slika"
-                    aria-label="Prethodna slika">‹</button>
-                <button id="gallery-next-btn" class="gallery-nav-btn" title="Sljedeća slika"
-                    aria-label="Sljedeća slika">›</button>
+                <button id="gallery-prev-btn" class="gallery-nav-btn" title="Prethodna slika">‹</button>
+                <button id="gallery-next-btn" class="gallery-nav-btn" title="Sljedeća slika">›</button>
 
                 <!-- Zatvaranje -->
-                <span id="gallery-close-btn" class="gallery-close" title="Zatvori"
-                    aria-label="Zatvori galeriju">×</span>
+                <span id="gallery-close-btn" class="gallery-close" title="Zatvori">×</span>
 
                 <!-- Slika kontejner -->
                 <div id="gallery-modal-image-container" class="gallery-modal-image-container">
-                    <img id="gallery-modal-image" src="" alt="Pregled slike iz galerije" class="gallery-modal-image"
-                        loading="lazy">
+                    <img id="gallery-modal-image" src="" alt="Pregled slike iz galerije" class="gallery-modal-image">
                 </div>
 
                 <!-- Indikatori -->
-                <div id="gallery-image-indicators" class="gallery-image-indicators" role="tablist"
-                    aria-label="Navigacija kroz slike"></div>
+                <div id="gallery-image-indicators" class="gallery-image-indicators"></div>
             </div>
         </div>
     </section> <!-- END GALLERY -->
@@ -367,33 +341,31 @@
     </div>
 
     <!-- SEVICES ================================== -->
-    <section class="pt-90 section-services" id="services" role="region" aria-labelledby="services-title">
+    <section class="pt-90 section-services" id="services">
 
         <div class="container">
             <span class="subheading" data-i18n="services.subheading">usluge dubinskog pranja tivat, kotor, budva</span>
-            <h2 class="h2" id="services-title" data-i18n="services.title">
+            <h2 class="h2" data-i18n="services.title">
                 Kompletne Usluge Dubinskog Pranja
             </h2>
         </div>
 
 
-        <div class="container grid col-3 services" role="list" aria-label="Lista usluga dubinskog pranja">
+        <div class="container grid col-3 services">
 
             <!-- 1 -->
-            <div class="service" role="listitem">
+            <div class="service">
 
                 <div class="relative overflow-hidden">
                     <div class="darkening-effect relative">
                         <img src="img/services/furniture-washing.webp" width="500" height="367"
-                            class="img service-photo" alt="Dubinsko pranje" loading="lazy">
+                            class="img service-photo" alt="Dubinsko pranje">
                         <img src="img/border/img-bottom-1.svg" width="1680" height="95" class="img absolute img-bottom"
-                            alt="" aria-hidden="true" loading="lazy">
+                            alt="image bottom effect">
                     </div>
                     <div class="service-photo-link absolute flex-space-between">
-                        <a class="" href="#gallerySection" data-i18n="services.service1.links.gallery"
-                            aria-label="Pogledajte galeriju pranja namještaja">Galerija</a>
-                        <a class="" href="#pricing" data-i18n="services.service1.links.pricing"
-                            aria-label="Pogledajte cijene pranja namještaja">Cijene</a>
+                        <a class="" href="#gallerySection" data-i18n="services.service1.links.gallery">Galerija</a>
+                        <a class="" href="#pricing" data-i18n="services.service1.links.pricing">Cijene</a>
                     </div>
                 </div>
 
@@ -406,17 +378,17 @@
                     </div>
 
                     <h3 class="service-title h3" data-i18n="services.service1.title">Namještaj & Itisoni</h3>
-                    <ul class="activity-attributes" role="list" aria-label="Karakteristike usluge">
-                        <li class="activity-attribute p" role="listitem">
-                            <ion-icon class="service-icon" name="arrow-redo-outline" aria-hidden="true"></ion-icon>
+                    <ul class="activity-attributes">
+                        <li class="activity-attribute p">
+                            <ion-icon class="service-icon" name="arrow-redo-outline"></ion-icon>
                             <span data-i18n="services.service1.items.furniture"><strong>Garniture</strong></span>
                         </li>
-                        <li class="activity-attribute p" role="listitem">
-                            <ion-icon class="service-icon" name="arrow-redo-outline" aria-hidden="true"></ion-icon>
+                        <li class="activity-attribute p">
+                            <ion-icon class="service-icon" name="arrow-redo-outline"></ion-icon>
                             <span data-i18n="services.service1.items.mattresses"><strong>Dušeci</strong></span>
                         </li>
-                        <li class="activity-attribute p" role="listitem">
-                            <ion-icon class="service-icon" name="arrow-redo-outline" aria-hidden="true"></ion-icon>
+                        <li class="activity-attribute p">
+                            <ion-icon class="service-icon" name="arrow-redo-outline"></ion-icon>
                             <span data-i18n="services.service1.items.cushions"><strong>Podne obloge</strong></span>
                         </li>
                     </ul>
@@ -425,20 +397,18 @@
             </div>
 
             <!-- 2 -->
-            <div class="service" role="listitem">
+            <div class="service">
 
                 <div class="relative overflow-hidden">
                     <div class="darkening-effect">
                         <img src="img/services/car--wash.webp" width="500" height="367" class="img service-photo"
-                            alt="Mašinsko čišćenje vozila i plovila" loading="lazy">
+                            alt="Mašinsko čišćenje vozila i plovila">
                         <img src="img/border/img-bottom-2.svg" width="1680" height="95" class="img absolute img-bottom"
-                            alt="" aria-hidden="true" loading="lazy">
+                            alt="image bottom effect">
                     </div>
                     <div class="service-photo-link absolute flex-space-between">
-                        <a class="" href="#gallerySection" data-i18n="services.service2.links.gallery"
-                            aria-label="Pogledajte galeriju pranja vozila">Galerija</a>
-                        <a class="" href="#pricing" data-i18n="services.service2.links.pricing"
-                            aria-label="Pogledajte cijene pranja vozila">Cijene</a>
+                        <a class="" href="#gallerySection" data-i18n="services.service2.links.gallery">Galerija</a>
+                        <a class="" href="#pricing" data-i18n="services.service2.links.pricing">Cijene</a>
                     </div>
                 </div>
 
@@ -452,18 +422,18 @@
                             data-i18n="services.service2.activities.polishing">Polimerizacija</span>
                     </div>
                     <h3 class="service-title h3" data-i18n="services.service2.title">Vozila & Plovila</h3>
-                    <ul class="activity-attributes" role="list" aria-label="Karakteristike usluge">
-                        <li class="activity-attribute p" role="listitem">
-                            <ion-icon class="service-icon" name="arrow-redo-outline" aria-hidden="true"></ion-icon>
+                    <ul class="activity-attributes">
+                        <li class="activity-attribute p">
+                            <ion-icon class="service-icon" name="arrow-redo-outline"></ion-icon>
                             <span data-i18n="services.service2.items.regularWash"><strong>Obično pranje</strong></span>
                         </li>
-                        <li class="activity-attribute p" role="listitem">
-                            <ion-icon class="service-icon" name="arrow-redo-outline" aria-hidden="true"></ion-icon>
+                        <li class="activity-attribute p">
+                            <ion-icon class="service-icon" name="arrow-redo-outline"></ion-icon>
                             <span data-i18n="services.service2.items.deepWashing"><strong>Dubinsko
                                     pranje</strong></span>
                         </li>
-                        <li class="activity-attribute p" role="listitem">
-                            <ion-icon class="service-icon" name="arrow-redo-outline" aria-hidden="true"></ion-icon>
+                        <li class="activity-attribute p">
+                            <ion-icon class="service-icon" name="arrow-redo-outline"></ion-icon>
                             <span data-i18n="services.service2.items.headlights"><strong>Polimerizacija
                                     farova</strong></span>
                         </li>
@@ -473,20 +443,18 @@
             </div>
 
             <!-- 3 -->
-            <div class="service" role="listitem">
+            <div class="service">
 
                 <div class="relative overflow-hidden">
                     <div class="darkening-effect">
                         <img src="img/services/porto.webp" width="500" height="367" class="img service-photo"
-                            alt="Mašinsko čišćenje hotela i jahti" loading="lazy">
+                            alt="Mašinsko čišćenje hotela i jahti">
                         <img src="img/border/img-bottom-1.svg" width="1680" height="95" class="img absolute img-bottom"
-                            alt="" aria-hidden="true" loading="lazy">
+                            alt="image bottom effect">
                     </div>
                     <div class="service-photo-link absolute flex-space-between">
-                        <a class="" href="#gallerySection" data-i18n="services.service3.links.gallery"
-                            aria-label="Pogledajte galeriju održavanja hotela">Galerija</a>
-                        <a class="" href="#pricing" data-i18n="services.service3.links.pricing"
-                            aria-label="Pogledajte cijene održavanja hotela">Cijene</a>
+                        <a class="" href="#gallerySection" data-i18n="services.service3.links.gallery">Galerija</a>
+                        <a class="" href="#pricing" data-i18n="services.service3.links.pricing">Cijene</a>
                     </div>
                 </div>
 
@@ -500,19 +468,19 @@
                             data-i18n="services.service3.activities.upkeep">Održavanje</span>
                     </div>
                     <h3 class="service-title h3" data-i18n="services.service3.title">Hoteli & Jahte</h3>
-                    <ul class="activity-attributes" role="list" aria-label="Karakteristike usluge">
-                        <li class="activity-attribute p" role="listitem">
-                            <ion-icon class="service-icon" name="arrow-redo-outline" aria-hidden="true"></ion-icon>
+                    <ul class="activity-attributes">
+                        <li class="activity-attribute p">
+                            <ion-icon class="service-icon" name="arrow-redo-outline"></ion-icon>
                             <span data-i18n="services.service3.items.exterior"><strong>Spoljašnost Hotela i
                                     Jahti</strong></span>
                         </li>
-                        <li class="activity-attribute p" role="listitem">
-                            <ion-icon class="service-icon" name="arrow-redo-outline" aria-hidden="true"></ion-icon>
+                        <li class="activity-attribute p">
+                            <ion-icon class="service-icon" name="arrow-redo-outline"></ion-icon>
                             <span data-i18n="services.service3.items.yachtInterior"><strong>Unutrašnjost
                                     Jahti</strong></span>
                         </li>
-                        <li class="activity-attribute p" role="listitem">
-                            <ion-icon class="service-icon" name="arrow-redo-outline" aria-hidden="true"></ion-icon>
+                        <li class="activity-attribute p">
+                            <ion-icon class="service-icon" name="arrow-redo-outline"></ion-icon>
                             <span data-i18n="services.service3.items.rooms"><strong>Sobe / Saloni /
                                     Terase</strong></span>
                         </li>
@@ -527,7 +495,7 @@
 
         <!-- border dots 2 row -->
         <div class="pt-90 pb-90 container">
-            <img class="img" src="img/border/border-sm.png" alt="Border for page" loading="lazy">
+            <img class="img" src="img/border/border-sm.png" alt="Border for page">
         </div>
 
 
@@ -539,8 +507,7 @@
 
             <!-- 1 -->
             <div class="flex info-service">
-                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg"
-                    loading="lazy">
+                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg">
                 <p class="p" data-i18n-html="services.info.points.point1">
                     <strong><em>Dubinskim pranjem</em></strong> - uklanjamo širok spektar alergena, kao što su
                     dlake od kućnih ljubimaca, grinje, prašina, polen i mnogo toga drugog. Rezultat? Vazduh u vašoj
@@ -552,12 +519,11 @@
             </div>
 
             <!-- border 1 row -->
-            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page" loading="lazy">
+            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page">
 
             <!-- 2 -->
             <div class="flex info-service">
-                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg"
-                    loading="lazy">
+                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg">
                 <p class="p" data-i18n-html="services.info.points.point2">
                     <strong><em>Dubinsko čišćenje obuhvata</em></strong> - sve tapacirane i porozne površine,
                     pružajući vašem starom i izbledelom nameštaju novi život. Neka vaš nameštaj ponovno zablista starim
@@ -569,12 +535,11 @@
             </div>
 
             <!-- border 1 row -->
-            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page" loading="lazy">
+            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page">
 
             <!-- 3 -->
             <div class="flex info-service">
-                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg"
-                    loading="lazy">
+                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg">
                 <p class="p" data-i18n-html="services.info.points.point3">
                     <strong><em>Kožni namještaj</em></strong> - ima svoju jedinstvenu priču, a mi donosimo
                     vrhunske rezultate koji će vas oduševiti. Iako koža nema duboke slojeve kao drugi materijali, naš
@@ -584,12 +549,11 @@
             </div>
 
             <!-- border 1 row -->
-            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page" loading="lazy">
+            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page">
 
             <!-- 4 -->
             <div class="flex info-service">
-                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg"
-                    loading="lazy">
+                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg">
                 <p class="p" data-i18n-html="services.info.points.point4">
                     <strong><em>Obično pranje</em></strong> - ima svoje ograničenje, često je brzo i
                     usredsređeno na površinsko uklanjanje mrlja i nečistoća. Međutim, često se dešava da prljavština
@@ -601,12 +565,11 @@
             </div>
 
             <!-- border 1 row -->
-            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page" loading="lazy">
+            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page">
 
             <!-- 5 -->
             <div class="flex info-service">
-                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg"
-                    loading="lazy">
+                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg">
                 <p class="p" data-i18n-html="services.info.points.point5">
                     <strong><em>Polimerizacija farova</em></strong> - predstavlja izuzetno efikasan tretman
                     koji donosi niz prednosti u poređenju sa klasičnim poliranjem. Osim poboljšanog izgleda farova,
@@ -617,12 +580,11 @@
             </div>
 
             <!-- border 1 row -->
-            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page" loading="lazy">
+            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page">
 
             <!-- 6 -->
             <div class="flex info-service">
-                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg"
-                    loading="lazy">
+                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg">
                 <p class="p" data-i18n-html="services.info.points.point6">
                     <strong><em>Vaše plovilo ili vozilo</em></strong> - zračiće istim sjajem kao u prvom danu
                     kada je izašlo iz fabrike! Naša neizmerna posvećenost detaljima ogleda se u besprekornom izgledu
@@ -632,12 +594,11 @@
             </div>
 
             <!-- border 1 row -->
-            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page" loading="lazy">
+            <img src="img/border/border-1-row.png" class="img pt-15 pb-15" alt="Border for page">
 
             <!-- 7 -->
             <div class="flex info-service">
-                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg"
-                    loading="lazy">
+                <img class="service-icon" width="30" height="30" alt="Template-2 logo" src="img/services/info-icon.svg">
                 <p class="p" data-i18n-html="services.info.points.point7">
                     <strong><em>Zelene površine</em></strong> - oblikujte ih prema svojim željama i potrebama,
                     a naš stručni tim će se posvetiti besprekornoj i profesionalnoj realizaciji. Naš cilj je pretvoriti
@@ -652,23 +613,23 @@
 
 
     <!-- FEATURE ================================== -->
-    <section class="mb-90" role="region" aria-labelledby="features-title">
+    <section class="mb-90">
         <!-- border dots 2 row -->
         <div id="featuree" class="container pt-90"">
-            <img class=" img" src="img/border/border-sm.png" alt="Border for page" loading="lazy">
+            <img class=" img" src="img/border/border-sm.png" alt="Border for page">
         </div>
 
-        <h2 class="container features-title" id="features-title" data-i18n="features.title">Oprema koju koristimo</h2>
+        <h2 class="container features-title" data-i18n="features.title">Oprema koju koristimo</h2>
 
         <!-- uređaji i spektar posla -->
         <div class="container grid col-4 features" id="feature">
 
             <!-- 1 -->
-            <div class="feature" role="article">
+            <div class="feature">
 
                 <a href="#about">
                     <img src="img/services/berner.webp" width="400" height="267" class="img brand-photo"
-                        alt="Airbox Cleaner IV" loading="lazy">
+                        alt="Airbox Cleaner IV">
                 </a>
 
                 <a href="#about">
@@ -676,34 +637,34 @@
                 </a>
 
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature1.points.point1">Čisti klima uređaje</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature1.points.point2">Čisti kabinu vozila</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature1.points.point3">Bez neprijatnih mirisa</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature1.points.point4">Osvježava prostor</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature1.points.point5">Bez mokrih površina</span>
                 </p>
 
             </div>
 
             <!-- 2 -->
-            <div class="feature" role="article">
+            <div class="feature">
 
                 <a href="#about">
                     <img src="img/services/karcher.webp" width="400" height="267" class="img brand-photo"
-                        alt="Puzzi 8/1 C" loading="lazy">
+                        alt="Puzzi 8/1 C">
                 </a>
 
                 <a href="#about">
@@ -714,29 +675,29 @@
                     Dubinsko pranje:
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature2.points.point1">Unutrašnjost vozila</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature2.points.point2">Namještaja</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature2.points.point3">Osvježava prostor</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature2.points.point4">Mala količina vlage</span>
                 </p>
             </div>
 
             <!-- 3 -->
-            <div class="feature" role="article">
+            <div class="feature">
 
                 <a href="#about">
                     <img src="img/services/karcher-5-15.webp" width="400" height="267" class="img brand-photo"
-                        alt="HD 5/15 C" loading="lazy">
+                        alt="HD 5/15 C">
                 </a>
 
                 <a href="#about">
@@ -744,68 +705,68 @@
                 </a>
 
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature3.points.point1">Pranje pod pritiskom</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature3.points.point2">Izvanredna mobilnost</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature3.points.point3">Sofisticirana oprema</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature3.points.point4">Visoka efikasnost</span>
                 </p>
                 <p class="feature-text flex p">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.feature3.points.point5">Izuzetna brzina</span>
                 </p>
             </div>
 
             <!-- 4 -->
-            <div class="service-list flex-column" role="list" aria-label="Spektar usluga">
+            <div class="service-list flex-column">
 
                 <a href="#services">
                     <h3 class="feature-title h3" data-i18n="features.serviceList.title">Spektar usluga:</h3>
                 </a>
 
-                <p class="feature-text flex p" role="listitem">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                <p class="feature-text flex p">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.serviceList.services.service1">Održavanje jahti</span>
                 </p>
-                <p class="feature-text flex p" role="listitem">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                <p class="feature-text flex p">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.serviceList.services.service2">Održavanje hotela</span>
                 </p>
-                <p class="feature-text flex p" role="listitem">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                <p class="feature-text flex p">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.serviceList.services.service3">Održavanje apartmana</span>
                 </p>
-                <p class="feature-text flex p" role="listitem">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                <p class="feature-text flex p">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.serviceList.services.service4">Održavanje namještaja</span>
                 </p>
-                <p class="feature-text flex p" role="listitem">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                <p class="feature-text flex p">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.serviceList.services.service5">Održavanje vozila</span>
                 </p>
-                <p class="feature-text flex p" role="listitem">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                <p class="feature-text flex p">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.serviceList.services.service6">Dezinfekcija</span>
                 </p>
-                <p class="feature-text flex p" role="listitem">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                <p class="feature-text flex p">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.serviceList.services.service7">Dezinsekcija</span>
                 </p>
-                <p class="feature-text flex p" role="listitem">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                <p class="feature-text flex p">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.serviceList.services.service8">Deratizacija</span>
                 </p>
-                <p class="feature-text flex p" role="listitem">
-                    <ion-icon class="list-icon" name="checkmark-outline" aria-hidden="true"></ion-icon>
+                <p class="feature-text flex p">
+                    <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
                     <span data-i18n="features.serviceList.services.service9">Polimerizacija</span>
                 </p>
             </div>
@@ -816,12 +777,12 @@
 
     <!-- BORDER - dots 3 row -->
     <div class="border-dots">
-        <img class="border-dots" src="img/border/border.png" alt="Border for page" loading="lazy">
+        <img class="border-dots" src="img/border/border.png" alt="Border for page">
     </div>
 
 
     <!-- PRICING ================================== -->
-    <section class="section-pricing pt-90" id="pricing" role="region" aria-labelledby="pricing-title">
+    <section class="section-pricing pt-90" id="pricing">
 
         <div id="pricing-title" class="container text-c">
             <span class="subheading" data-i18n="pricing.subheading">Cjenovnik</span>
@@ -831,7 +792,7 @@
         <!-- grid col-3 -->
         <div class="container grid col-3 pricings">
             <!-- col-1 - Dubinsko pranje -->
-            <div class="pricing-plan price-list" role="article">
+            <div class="pricing-plan price-list">
                 <div class="price-list-border-top"></div>
                 <header class="price-list-header">
                     <h3 class="price-list-title h3-sm" data-i18n="pricing.plans.dubinsko_pranje.title">Namještaj &
@@ -840,8 +801,8 @@
                     <output id="total-1" class="price-list-sum"><span class="euro">€</span><span>40.00</span></output>
                     <p class="price-list-text" data-i18n="pricing.selectService">Izaberite servis</p>
                 </header>
-                <ul id="checkboxes-1" class="checkboxes p" role="list" aria-label="Opcije za namještaj i itisone">
-                    <li role="listitem">
+                <ul id="checkboxes-1" class="checkboxes p">
+                    <li>
                         <label for="furniture" class="label-pricing flex align-center">
                             <input type="radio" id="furniture" name="furnitureType" value="50.00+" checked>
                             <span class="chtext"
@@ -849,7 +810,7 @@
                             <span class="checkmark"></span>
                         </label>
                     </li>
-                    <li role="listitem">
+                    <li>
                         <label for="mattresses" class="label-pricing flex align-center">
                             <input type="radio" id="mattresses" name="furnitureType" value="20.00+">
                             <span class="chtext"
@@ -857,7 +818,7 @@
                             <span class="checkmark"></span>
                         </label>
                     </li>
-                    <li role="listitem">
+                    <li>
                         <label for="cushions" class="label-pricing flex align-center">
                             <input type="radio" id="cushions" name="furnitureType" value="3.00+">
                             <span class="chtext"
@@ -868,14 +829,13 @@
                 </ul>
                 <div class="price-list-footer">
                     <p data-i18n="pricing.calculatorNote">Kalkulator prikazuje početnu cijenu!</p>
-                    <button id="showFullPrice-1" data-i18n="pricing.plans.dubinsko_pranje.fullPriceButton"
-                        aria-label="Prikaži kompletan cjenovnik za namještaj">Kompletan
+                    <button id="showFullPrice-1" data-i18n="pricing.plans.dubinsko_pranje.fullPriceButton">Kompletan
                         cjenovnik</button>
                 </div>
             </div>
 
             <!-- col-2 - Vozila i plovila -->
-            <div class="pricing-plan price-list" role="article">
+            <div class="pricing-plan price-list">
                 <div class="price-list-border-top"></div>
                 <header class="price-list-header">
                     <h3 class="price-list-title h3-sm" data-i18n="pricing.plans.vozila_i_plovila.title">Vozila & Plovila
@@ -883,8 +843,8 @@
                     <output id="total-2" class="price-list-sum"><span class="euro">€</span><span>100.00</span> </output>
                     <p class="price-list-text" data-i18n="pricing.selectService">Izaberite servis</p>
                 </header>
-                <ul id="checkboxes-2" class="checkboxes p" role="list" aria-label="Opcije za vozila i plovila">
-                    <li role="listitem">
+                <ul id="checkboxes-2" class="checkboxes p">
+                    <li>
                         <label for="regularWash" class="label-pricing flex align-center">
                             <input type="radio" id="regularWash" name="washingType" value="15.00">
                             <span class="chtext"
@@ -893,7 +853,7 @@
                             <span class="checkmark"></span>
                         </label>
                     </li>
-                    <li role="listitem">
+                    <li>
                         <label for="deepWashing" class="label-pricing flex align-center">
                             <input type="radio" id="deepWashing" name="washingType" value="100.00" checked>
                             <span class="chtext"
@@ -902,7 +862,7 @@
                             <span class="checkmark"></span>
                         </label>
                     </li>
-                    <li role="listitem">
+                    <li>
                         <label for="headlights" class="label-pricing flex align-center">
                             <input type="radio" id="headlights" name="washingType" value="50.00">
                             <span class="chtext"
@@ -914,14 +874,13 @@
                 </ul>
                 <div class="price-list-footer">
                     <p data-i18n="pricing.calculatorNote">Kalkulator prikazuje početnu cijenu!</p>
-                    <button id="showFullPrice-2" data-i18n="pricing.plans.vozila_i_plovila.fullPriceButton"
-                        aria-label="Prikaži kompletan cjenovnik za vozila">Kompletan
+                    <button id="showFullPrice-2" data-i18n="pricing.plans.vozila_i_plovila.fullPriceButton">Kompletan
                         cjenovnik</button>
                 </div>
             </div>
 
             <!-- col-3 - Hoteli & Jahte -->
-            <div class="pricing-plan price-list" role="article">
+            <div class="pricing-plan price-list">
                 <div class="price-list-border-top"></div>
                 <header class="price-list-header">
                     <h3 class="price-list-title h3-sm" data-i18n="pricing.plans.hoteli_i_jahte.title">Hoteli &amp; Jahte
@@ -929,8 +888,8 @@
                     <output id="total-3" class="price-list-sum"><span class="euro">€</span><span>0.00</span></output>
                     <p class="price-list-text" data-i18n="pricing.selectService">Izaberite servis</p>
                 </header>
-                <ul id="checkboxes-3" class="checkboxes p" role="list" aria-label="Opcije za hotele i jahte">
-                    <li role="listitem">
+                <ul id="checkboxes-3" class="checkboxes p">
+                    <li>
                         <label for="exterior" class="label-pricing flex align-center">
                             <input type="radio" id="exterior" name="service" value="0.00">
                             <span class="chtext"
@@ -939,7 +898,7 @@
                             <span class="checkmark"></span>
                         </label>
                     </li>
-                    <li role="listitem">
+                    <li>
                         <label for="yachtInterior" class="label-pricing flex align-center">
                             <input type="radio" id="yachtInterior" name="service" value="1.00">
                             <span class="chtext"
@@ -948,7 +907,7 @@
                             <span class="checkmark"></span>
                         </label>
                     </li>
-                    <li role="listitem">
+                    <li>
                         <label for="rooms" class="label-pricing flex align-center">
                             <input type="radio" id="rooms" name="service" value="2.00">
                             <span class="chtext"
@@ -960,18 +919,16 @@
                 </ul>
                 <div class="price-list-footer">
                     <p data-i18n="pricing.calculatorNote">Kalkulator prikazuje početnu cijenu!</p>
-                    <button id="showFullPrice-3" data-i18n="pricing.plans.hoteli_i_jahte.fullPriceButton"
-                        aria-label="Prikaži kompletan cjenovnik za hotele">Kompletan
+                    <button id="showFullPrice-3" data-i18n="pricing.plans.hoteli_i_jahte.fullPriceButton">Kompletan
                         cjenovnik</button>
                 </div>
             </div>
         </div> <!-- end grid col-3 -->
 
         <!-- Modalni prozor za cjenovnik -->
-        <div id="pricing-modal" class="pricing-modal" role="dialog" aria-modal="true"
-            aria-labelledby="pricing-modal-title" aria-hidden="true">
+        <div id="pricing-modal" class="pricing-modal">
             <div class="pricing-modal-content">
-                <span class="pricing-modal-close" aria-label="Zatvori cjenovnik">&times;</span>
+                <span class="pricing-modal-close">&times;</span>
                 <div class="pricing-modal-header">
                     <h3 id="pricing-modal-title" data-i18n="pricing.plans.deepCleaning.modalTitle">Cjenovnik</h3>
                 </div>
@@ -989,19 +946,19 @@
 
 
     <!-- OUR PARTNERS ================================== -->
-    <section class="section-partners" id="partners" role="region" aria-labelledby="partners-title">
+    <section class="section-partners" id="partners">
 
         <div class="info-pricings"></div>
 
         <div class="text-c">
-            <h2 class="h2-partners" id="partners-title" data-i18n="partners.title">Our Business Partners</h2>
+            <h2 class="h2-partners" data-i18n="partners.title">Our Business Partners</h2>
             <p class="partners-description" data-i18n="partners.subheading">Sa našim partnerima dijelimo put ka
                 inovacijama i
                 uspjehu.
             </p>
         </div>
 
-        <div class="marquee-wrapper" aria-label="Lista partnera">
+        <div class="marquee-wrapper">
 
             <div class="marquee-inner">
                 <!-- 1 -->
@@ -1044,10 +1001,10 @@
 
 
     <!-- CONTACT ================================== -->
-    <section class=" section-contact pt-90" id="contact" role="region">
+    <section class="section-contact pt-90" id="contact">
 
-        <header class="header-maps" aria-labelledby="contact-title">
-            <h2 class="h2" id="contact-title" data-i18n="contact.title">Contact us</h2>
+        <header class="header-maps">
+            <h2 class="h2" data-i18n="contact.title">Contact us</h2>
         </header>
 
         <div class="section-contact grid">
@@ -1059,11 +1016,10 @@
 
             <div class="contact-maps">
                 <div class="info">
-                    <h3 class="h3" id="contact-form-title" data-i18n="contact.sendEmail">Pošalji imejl</h3>
-                    <img class="add-file-icon" src="img/icon/file.png" alt="file icon">
+                    <h3 class="h3" data-i18n="contact.sendEmail">Pošalji imejl</h3>
+                    <img class="add-file-icon hidden" src="img/icon/file.png" alt="file icon">
 
-                    <form class="info" method="POST" action="send_message.php" autocomplete="off" role="form"
-                        aria-labelledby="contact-form-title">
+                    <form class="info" method="POST" action="send_message.php" autocomplete="off">
                         <!-- Honeypot field za spam zaštitu -->
                         <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
 
@@ -1097,14 +1053,11 @@
                     </form>
 
                     <h3 class="h3" data-i18n="contact.address">Adresa</h3>
-                    <p class="p"><ion-icon name="location-outline" aria-hidden="true"></ion-icon> Radanovići bb, Ruska
-                        garaža</p>
-                    <p class="p"><ion-icon name="locate-outline" aria-hidden="true"></ion-icon> 85 300 Kotor, Crna Gora
-                    </p>
-                    <p class="p entypo-phone"><ion-icon name="call-outline" aria-hidden="true"></ion-icon> <a
-                            href="tel:+38268069211">+382
-                            68 069 211</a> <span class="info-block">&nbsp;</span> <ion-icon name="mail-outline"
-                            aria-hidden="true"></ion-icon> info@perfectshine.me
+                    <p class="p"><ion-icon name="location-outline"></ion-icon> Radanovići bb, Ruska garaža</p>
+                    <p class="p"><ion-icon name="locate-outline"></ion-icon> 85 300 Kotor, Crna Gora</p>
+                    <p class="p entypo-phone"><ion-icon name="call-outline"></ion-icon> <a href="tel:+38268069211">+382
+                            68 069 211</a> <span class="info-block">&nbsp;</span> <ion-icon
+                            name="mail-outline"></ion-icon> info@perfectshine.me
                     </p>
                 </div>
             </div>
@@ -1122,20 +1075,20 @@
 
 
     <!-- FOOTER ================================== -->
-    <footer class="footer grid col-3" id="footer" role="contentinfo">
+    <footer class="footer grid col-3" id="footer">
         <!-- first column -->
-        <ul class="social-links flex" role="list" aria-label="Brze veze">
-            <li role="listitem">
+        <ul class="social-links flex">
+            <li>
                 <a class="footer-link" href="#services" data-i18n="nav.services">
                     Usluge
                 </a>
             </li>
-            <li role="listitem">
+            <li>
                 <a class="footer-link" href="#gallerySection" data-i18n="nav.gallery">
                     Galerija
                 </a>
             </li>
-            <li role="listitem">
+            <li>
                 <a class="footer-link" href="#pricing" data-i18n="nav.pricing">
                     Cijene
                 </a>
@@ -1147,16 +1100,16 @@
             <div class="js-is-open real-time-sign">
                 <div class="sign">
                     <div>
-                        <img class="img" src="img/footer/konop.svg" alt="rope" loading="lazy">
+                        <img class="img" src="img/footer/konop.svg" alt="rope">
                     </div>
                     <span>Open</span>
                 </div>
             </div>
 
             <div class="flex justify-center">
-                <a href="#hero" aria-label="Perfect Shine - Početna stranica">
+                <a href="#hero">
                     <img class="img logo-sm-light" width="100" height="7" alt="logo-sm-light"
-                        src="img/footer/logo-sm-light.svg" loading="lazy">
+                        src="img/footer/logo-sm-light.svg">
                 </a>
             </div>
 
@@ -1167,29 +1120,25 @@
         </div>
 
         <!-- third column -->
-        <ul class="social-links flex justify-end" role="list" aria-label="Društvene mreže">
-            <li role="listitem">
-                <a class="footer-link" href="https://www.instagram.com/_dubinsko_pranje_tivat" target="_blank"
-                    aria-label="Instagram">
-                    <ion-icon class="social-icon" name="logo-instagram" aria-hidden="true"></ion-icon>
+        <ul class="social-links flex justify-end">
+            <li>
+                <a class="footer-link" href="https://www.instagram.com/_dubinsko_pranje_tivat" target="_blank">
+                    <ion-icon class="social-icon" name="logo-instagram"></ion-icon>
                 </a>
             </li>
-            <li role="listitem">
-                <a class="footer-link" href="https://www.facebook.com/profile.php?id=100064044033023" target="_blank"
-                    aria-label="Facebook">
-                    <ion-icon class="social-icon" name="logo-facebook" aria-hidden="true"></ion-icon>
+            <li>
+                <a class="footer-link" href="https://www.facebook.com/profile.php?id=100064044033023" target="_blank">
+                    <ion-icon class="social-icon" name="logo-facebook"></ion-icon>
                 </a>
             </li>
-            <li role="listitem">
-                <a class="footer-link" href="https://www.tiktok.com/@_dubinsko_pranje_tivat/" target="_blank"
-                    aria-label="TikTok">
-                    <ion-icon class="social-icon" name="logo-tiktok" aria-hidden="true"></ion-icon>
+            <li>
+                <a class="footer-link" href="https://www.tiktok.com/@_dubinsko_pranje_tivat/" target="_blank">
+                    <ion-icon class="social-icon" name="logo-tiktok"></ion-icon>
                 </a>
             </li>
-            <li role="listitem">
-                <a class="footer-link" href="https://www.instagram.com/_dubinsko_pranje_tivat" target="_blank"
-                    aria-label="Twitter">
-                    <ion-icon class="social-icon" name="logo-twitter" aria-hidden="true"></ion-icon>
+            <li>
+                <a class="footer-link" href="https://www.instagram.com/_dubinsko_pranje_tivat" target="_blank">
+                    <ion-icon class="social-icon" name="logo-twitter"></ion-icon>
                 </a>
             </li>
         </ul>
@@ -1199,49 +1148,47 @@
 
     <!-- PROZOR CALL US  ================================== -->
     <div>
-        <div class="callUs" role="dialog" aria-modal="true" aria-labelledby="callUs-title" aria-hidden="true">
-            <p id="callUs-title" data-i18n="callUsDialog.title">POZOVITE NAS</p>
-            <ion-icon class="callUs-close" name="close-outline" aria-label="Zatvori"></ion-icon>
+        <div class="callUs">
+            <p data-i18n="callUsDialog.title">POZOVITE NAS</p>
+            <ion-icon class="callUs-close" name="close-outline"></ion-icon>
             <img class="call-option" src="img/call/callUs-500.webp" width="280" height="350"
-                alt="Kontaktirajte nas za usluge dubinskog pranja i čišćenja - Dostupni 7 dana" loading="lazy">
+                alt="Kontaktirajte nas za usluge dubinskog pranja i čišćenja - Dostupni 7 dana">
 
-            <div class="call-options1 flex" role="list" aria-label="Opcije za kontakt">
+            <div class="call-options1 flex">
 
-                <a href="tel:+38268069211" class="call-option flex gap-10 align-center" role="listitem">
-                    <img src="img/call/viber_152851.png" alt="Phone" width="128" height="128" loading="lazy">
+                <a href="tel:+38268069211" class="call-option flex gap-10 align-center">
+                    <img src="img/call/viber_152851.png" alt="Phone" width="128" height="128">
                     Phone
                 </a>
 
-                <a href="viber://add?number=%2B38268069211" class="call-option flex gap-10 align-center"
-                    role="listitem">
-                    <img src="img/call/viber_2504948.png" alt="Viber" width="128" height="128" loading="lazy">
+                <a href="viber://add?number=%2B38268069211" class="call-option flex gap-10 align-center">
+                    <img src="img/call/viber_2504948.png" alt="Viber" width="128" height="128">
                     Viber
                 </a>
 
-                <a href="https://wa.me/38268069211" class="call-option flex gap-10 align-center" role="listitem">
-                    <img src="img/call/whatsapp_3536445.png" alt="WhatsApp" width="128" height="128" loading="lazy">
+                <a href="https://wa.me/38268069211" class="call-option flex gap-10 align-center">
+                    <img src="img/call/whatsapp_3536445.png" alt="WhatsApp" width="128" height="128">
                     WhatsApp
                 </a>
 
             </div>
 
-            <div class="flex callUs_Social" role="list" aria-label="Društvene mreže">
-                <a href="https://www.facebook.com/profile.php?id=100064044033023" target="_blank" aria-label="Facebook">
-                    <img src="img/call/icons8-facebook.svg" alt="facebook icon" loading="lazy">
+            <div class="flex callUs_Social">
+                <a href="https://www.facebook.com/profile.php?id=100064044033023" target="_blank">
+                    <img src="img/call/icons8-facebook.svg" alt="facebook icon">
                 </a>
-                <a href="https://www.instagram.com/_dubinsko_pranje_tivat" target="_blank" aria-label="Instagram">
-                    <img src="img/call/icons8-instagram.svg" alt="instagram icon" loading="lazy">
+                <a href="https://www.instagram.com/_dubinsko_pranje_tivat" target="_blank">
+                    <img src="img/call/icons8-instagram.svg" alt="instagram icon">
                 </a>
-                <a href="https://www.tiktok.com/@_dubinsko_pranje_tivat/" target="_blank" aria-label="TikTok">
-                    <img src="img/call/icons8-tiktok.svg" alt="tiktok icon" loading="lazy">
+                <a href="https://www.tiktok.com/@_dubinsko_pranje_tivat/" target="_blank">
+                    <img src="img/call/icons8-tiktok.svg" alt="tiktok icon">
                 </a>
             </div>
             <div class="callUsNumber">
                 +382 68 069 211
             </div>
         </div>
-        <img class="open-callUs" src="img/call/operater+.png" alt="icon operater" loading="lazy"
-            aria-label="Otvori kontakt prozor">
+        <img class="open-callUs" src="img/call/operater+.png" alt="icon operater">
     </div> <!-- END PROZOR CALL US -->
 
 

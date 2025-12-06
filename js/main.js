@@ -1,4 +1,4 @@
-// main.js - COMPLETE SYNCHRONIZED VERSION (ALL FORM FUNCTIONALITY REMOVED)
+// main.js - COMPLETE SYNCHRONIZED VERSION (WITH SEO OPTIMIZATION)
 document.addEventListener('DOMContentLoaded', function () {
     // ==================== GLOBAL VARIABLES ====================
     const body = document.body;
@@ -409,12 +409,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /**
-     * Ažurira HTML lang attribute za SEO
+     * Ažurira HTML lang attribute za SEO (koristi UTILS ako postoji)
      */
     function updateHtmlLangAttribute(lang) {
-        const htmlElement = document.documentElement;
-        if (htmlElement) {
-            htmlElement.setAttribute('lang', lang);
+        if (typeof UTILS !== 'undefined' && UTILS.updateHtmlLangAttribute) {
+            UTILS.updateHtmlLangAttribute(lang);
+        } else {
+            const htmlElement = document.documentElement;
+            if (htmlElement) {
+                htmlElement.setAttribute('lang', lang);
+            }
         }
     }
 
@@ -422,19 +426,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * Ažurira placeholder tekste u formi na trenutni jezik
      */
     function updateFormPlaceholders() {
-        const subjectInput = document.querySelector('input[name="subject"]');
-        const phoneInput = document.querySelector('input[name="phone"]');
-        const messageTextarea = document.querySelector('textarea[name="message"]');
-
-        if (subjectInput) {
-            subjectInput.placeholder = getTranslation('contact.namePlaceholder') || 'Subject';
-        }
-        if (phoneInput) {
-            phoneInput.placeholder = getTranslation('contact.phonePlaceholder') || 'Phone';
-        }
-        if (messageTextarea) {
-            messageTextarea.placeholder = getTranslation('contact.messagePlaceholder') || 'Your message...';
-        }
+        UTILS.updateFormPlaceholders(currentLanguage);
     }
 
     // ==================== DYNAMIC META TAGS ====================
@@ -465,129 +457,142 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /**
-     * Ažurira Open Graph tagove
+     * Ažurira Open Graph tagove (optimizovana verzija)
      */
     function updateOpenGraphTags(translations) {
-        const ogLocaleMap = { 'sr': 'sr_RS', 'en': 'en_US', 'ru': 'ru_RU' };
+        // Koristi UTILS funkciju ako postoji
+        if (typeof UTILS !== 'undefined' && UTILS.updateOpenGraphForLanguage) {
+            UTILS.updateOpenGraphForLanguage(currentLanguage, translations);
+        } else {
+            // Fallback na originalni kod
+            const ogLocaleMap = { 'sr': 'sr_ME', 'en': 'en_US', 'ru': 'ru_RU' };
 
-        // Og:title
-        let ogTitle = document.querySelector('meta[property="og:title"]');
-        if (!ogTitle) {
-            ogTitle = document.createElement('meta');
-            ogTitle.setAttribute('property', 'og:title');
-            document.head.appendChild(ogTitle);
-        }
-        ogTitle.setAttribute('content', translations?.pageTitle || 'Perfect Shine - Dubinsko Pranje');
-
-        // Og:description
-        let ogDescription = document.querySelector('meta[property="og:description"]');
-        if (!ogDescription) {
-            ogDescription = document.createElement('meta');
-            ogDescription.setAttribute('property', 'og:description');
-            document.head.appendChild(ogDescription);
-        }
-        ogDescription.setAttribute('content', translations?.pageDescription ||
-            'Profesionalno dubinsko pranje automobila, garnitura, jahti i hotela na crnogorskom primorju.');
-
-        // Og:locale
-        let ogLocale = document.querySelector('meta[property="og:locale"]');
-        if (!ogLocale) {
-            ogLocale = document.createElement('meta');
-            ogLocale.setAttribute('property', 'og:locale');
-            document.head.appendChild(ogLocale);
-        }
-        ogLocale.setAttribute('content', ogLocaleMap[currentLanguage] || 'sr_RS');
-
-        // Ostali OG tagovi koji su statički
-        ensureOpenGraphTags();
-    }
-
-    /**
-     * Osigurava da postoje osnovni Open Graph tagovi
-     */
-    function ensureOpenGraphTags() {
-        const requiredOgTags = [
-            { property: 'og:type', content: 'website' },
-            { property: 'og:site_name', content: 'Perfect Shine' },
-            { property: 'og:image', content: 'https://perfectshine.me/img/logo/logo.png' },
-            { property: 'og:image:width', content: '200' },
-            { property: 'og:image:height', content: '200' },
-            { property: 'og:url', content: 'https://perfectshine.me/' }
-        ];
-
-        requiredOgTags.forEach(tag => {
-            let element = document.querySelector(`meta[property="${tag.property}"]`);
-            if (!element) {
-                element = document.createElement('meta');
-                element.setAttribute('property', tag.property);
-                element.setAttribute('content', tag.content);
-                document.head.appendChild(element);
+            // Og:title
+            let ogTitle = document.querySelector('meta[property="og:title"]');
+            if (!ogTitle) {
+                ogTitle = document.createElement('meta');
+                ogTitle.setAttribute('property', 'og:title');
+                document.head.appendChild(ogTitle);
             }
-        });
+            ogTitle.setAttribute('content', translations?.pageTitle || 'Perfect Shine - Dubinsko Pranje');
+
+            // Og:description
+            let ogDescription = document.querySelector('meta[property="og:description"]');
+            if (!ogDescription) {
+                ogDescription = document.createElement('meta');
+                ogDescription.setAttribute('property', 'og:description');
+                document.head.appendChild(ogDescription);
+            }
+            ogDescription.setAttribute('content', translations?.pageDescription ||
+                'Profesionalno dubinsko pranje automobila, garnitura, jahti i hotela na crnogorskom primorju.');
+
+            // Og:locale
+            let ogLocale = document.querySelector('meta[property="og:locale"]');
+            if (!ogLocale) {
+                ogLocale = document.createElement('meta');
+                ogLocale.setAttribute('property', 'og:locale');
+                document.head.appendChild(ogLocale);
+            }
+            ogLocale.setAttribute('content', ogLocaleMap[currentLanguage] || 'sr_ME');
+        }
     }
 
     /**
-     * Ažurira Geo tagove
+     * Ažurira Geo tagove (optimizovana verzija)
      */
     function updateGeoTags(translations) {
-        const geoData = {
-            'sr': {
-                region: 'ME',
-                placename: 'Kotor',
-                position: '42.369187;18.753562',
-                ICBM: '42.369187, 18.753562'
-            },
-            'en': {
-                region: 'ME',
-                placename: 'Kotor',
-                position: '42.369187;18.753562',
-                ICBM: '42.369187, 18.753562'
-            },
-            'ru': {
-                region: 'ME',
-                placename: 'Котор',
-                position: '42.369187;18.753562',
-                ICBM: '42.369187, 18.753562'
+        // Koristi UTILS funkciju ako postoji
+        if (typeof UTILS !== 'undefined' && UTILS.updateGeoTagsForLanguage) {
+            UTILS.updateGeoTagsForLanguage(currentLanguage);
+        } else {
+            // Fallback na originalni kod
+            const geoData = {
+                'sr': {
+                    region: 'ME',
+                    placename: 'Kotor',
+                    position: '42.369187;18.753562',
+                    ICBM: '42.369187, 18.753562'
+                },
+                'en': {
+                    region: 'ME',
+                    placename: 'Kotor',
+                    position: '42.369187;18.753562',
+                    ICBM: '42.369187, 18.753562'
+                },
+                'ru': {
+                    region: 'ME',
+                    placename: 'Котор',
+                    position: '42.369187;18.753562',
+                    ICBM: '42.369187, 18.753562'
+                }
+            };
+
+            const currentGeo = geoData[currentLanguage] || geoData['sr'];
+
+            // Geo region
+            let geoRegion = document.querySelector('meta[name="geo.region"]');
+            if (!geoRegion) {
+                geoRegion = document.createElement('meta');
+                geoRegion.setAttribute('name', 'geo.region');
+                document.head.appendChild(geoRegion);
             }
-        };
+            geoRegion.setAttribute('content', currentGeo.region);
 
-        const currentGeo = geoData[currentLanguage] || geoData['sr'];
+            // Geo placename
+            let geoPlacename = document.querySelector('meta[name="geo.placename"]');
+            if (!geoPlacename) {
+                geoPlacename = document.createElement('meta');
+                geoPlacename.setAttribute('name', 'geo.placename');
+                document.head.appendChild(geoPlacename);
+            }
+            geoPlacename.setAttribute('content', currentGeo.placename);
 
-        // Geo region
-        let geoRegion = document.querySelector('meta[name="geo.region"]');
-        if (!geoRegion) {
-            geoRegion = document.createElement('meta');
-            geoRegion.setAttribute('name', 'geo.region');
-            document.head.appendChild(geoRegion);
+            // Geo position
+            let geoPosition = document.querySelector('meta[name="geo.position"]');
+            if (!geoPosition) {
+                geoPosition = document.createElement('meta');
+                geoPosition.setAttribute('name', 'geo.position');
+                document.head.appendChild(geoPosition);
+            }
+            geoPosition.setAttribute('content', currentGeo.position);
+
+            // ICBM
+            let icbm = document.querySelector('meta[name="ICBM"]');
+            if (!icbm) {
+                icbm = document.createElement('meta');
+                icbm.setAttribute('name', 'ICBM');
+                document.head.appendChild(icbm);
+            }
+            icbm.setAttribute('content', currentGeo.ICBM);
         }
-        geoRegion.setAttribute('content', currentGeo.region);
+    }
 
-        // Geo placename
-        let geoPlacename = document.querySelector('meta[name="geo.placename"]');
-        if (!geoPlacename) {
-            geoPlacename = document.createElement('meta');
-            geoPlacename.setAttribute('name', 'geo.placename');
-            document.head.appendChild(geoPlacename);
-        }
-        geoPlacename.setAttribute('content', currentGeo.placename);
+    /**
+     * Osigurava da postoje osnovni Open Graph tagovi (fallback funkcija)
+     */
+    function ensureOpenGraphTags() {
+        // Ova funkcija se više ne koristi ako UTILS postoji
+        // Ostavljena za kompatibilnost
+        if (typeof UTILS === 'undefined' || !UTILS.initializeOpenGraphTags) {
+            const requiredOgTags = [
+                { property: 'og:type', content: 'website' },
+                { property: 'og:site_name', content: 'Perfect Shine' },
+                { property: 'og:image', content: 'https://perfectshine.me/img/logo/logo.png' },
+                { property: 'og:image:width', content: '200' },
+                { property: 'og:image:height', content: '200' },
+                { property: 'og:url', content: 'https://perfectshine.me/' }
+            ];
 
-        // Geo position
-        let geoPosition = document.querySelector('meta[name="geo.position"]');
-        if (!geoPosition) {
-            geoPosition = document.createElement('meta');
-            geoPosition.setAttribute('name', 'geo.position');
-            document.head.appendChild(geoPosition);
+            requiredOgTags.forEach(tag => {
+                let element = document.querySelector(`meta[property="${tag.property}"]`);
+                if (!element) {
+                    element = document.createElement('meta');
+                    element.setAttribute('property', tag.property);
+                    element.setAttribute('content', tag.content);
+                    document.head.appendChild(element);
+                }
+            });
         }
-        geoPosition.setAttribute('content', currentGeo.position);
-
-        // ICBM
-        let icbm = document.querySelector('meta[name="ICBM"]');
-        if (!icbm) {
-            icbm = document.createElement('meta');
-            icbm.setAttribute('name', 'ICBM');
-            document.head.appendChild(icbm);
-        }
-        icbm.setAttribute('content', currentGeo.ICBM);
     }
 
     /**
@@ -931,7 +936,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         marqueeScroll();
 
-        const wrapper = document.querySelector(".marquee-wrapper");
+        /* const wrapper = document.querySelector(".marquee-wrapper");
         if (wrapper) {
             wrapper.addEventListener("mouseenter", () => isPaused = true);
             wrapper.addEventListener("mouseleave", () => isPaused = false);
@@ -941,7 +946,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 logo.addEventListener('focus', () => isPaused = true);
                 logo.addEventListener('blur', () => isPaused = false);
             });
-        }
+        } */
     }
 
     // ==================== STRUCTURED DATA LOADING ====================
@@ -967,6 +972,11 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     async function initializeApp() {
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'sr';
+
+        // ✅ INICIJALIZUJ SEO TAGOVE (samo jednom)
+        if (typeof UTILS !== 'undefined' && UTILS.initializeAllMetaTags) {
+            UTILS.initializeAllMetaTags();
+        }
 
         await loadPrices();
         setupRadioPrices();

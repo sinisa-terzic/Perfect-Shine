@@ -528,55 +528,90 @@ const FORM_VALIDATION = {
     validateNameField: function (text, minLength) {
         if (text.length < minLength) return false;
 
-        // Dopusti srpska slova, razmake, crtice i apostrofe
+        // 1. Osnovni karakteri
         const namePattern = /^[a-zA-ZčćžšđČĆŽŠĐ\s\-'\.]+$/;
         if (!namePattern.test(text)) return false;
 
         const cleanText = text.toLowerCase().replace(/[^a-zčćžšđ]/g, '');
 
-        // ✅ UKLONJENA STROGA PROVJERA ZA 2-SLOVA IMENA
-        // "veljko", "marko", "petar" itd. će sada proći
+        // 2. Lista poznatih kratkih imena (whitelist)
+        const commonShortNames = new Set([
+            // ✅ Ženska imena (abecedno):
+            'aida', 'anna', 'asia',
+            'lola',
+            'nikolina',
+            'olja',
 
-        // PROVJERA 1: Mora imati barem jedan samoglasnik
-        const hasVowel = /[aeioučćžšđ]/i.test(cleanText);
-        if (!hasVowel) return false;
+            // ✅ Muška imena (abecedno):
+            'nikola',
+            'uroš',
+        ]);
 
-        // PROVJERA 2: Mora imati barem jedan suglasnik  
-        const hasConsonant = /[bcdfghjklmnpqrstvwxyz]/i.test(cleanText);
-        if (!hasConsonant) return false;
+        // Ako je u whitelistu, brzo prihvati
+        if (commonShortNames.has(cleanText)) {
+            return true;
+        }
 
-        // PROVJERA 3: Strožija provjera uzastopnih karaktera
-        if (/(.)\1{2,}/.test(cleanText)) return false; // 3+ istih karaktera
+        // 3. ANTI-SPAM FILTERI ZA OSTALA IMENA
 
-        // PROVJERA 4: Keyboard pattern
+        // 3.1 Ponavljajući karakteri (2+ uzastopno = nevalidno)
+        if (/(.)\1{1,}/.test(cleanText)) return false; // "aa", "ll", "ćć" = ❌
+
+        // 3.2 Previše istih karaktera u celom imenu (>33%)
+        const uniqueChars = new Set(cleanText).size;
+        if (uniqueChars / cleanText.length < 0.33) return false;
+
+        // 3.3 Keyboard pattern
         if (UTILS.isKeyboardPattern(cleanText)) return false;
 
-        return true; // ✅ "veljko" će sada proći
+        // 3.4 Sekvencijalni pattern
+        if (UTILS.isSequentialPattern(cleanText)) return false;
+
+        // 4. STRUKTURALNE PROVJERE
+
+        // 4.1 Mora imati i samoglasnike i suglasnike
+        const vowelCount = (cleanText.match(/[aeioučćžšđ]/gi) || []).length;
+        const consonantCount = (cleanText.match(/[bcdfghjklmnpqrstvwxyz]/gi) || []).length;
+
+        if (vowelCount === 0 || consonantCount === 0) return false;
+
+        // 4.2 Odnos samoglasnika i suglasnika mora biti razuman
+        const vowelRatio = vowelCount / cleanText.length;
+        if (vowelRatio < 0.15 || vowelRatio > 0.7) return false;
+
+        // 5. PROVJERA ZA ČUDNE KOMBINACIJE
+
+        // 5.1 Ne dozvoli sve iste slova
+        if (new Set(cleanText).size === 1) return false;
+
+        // 5.2 Provjeri da li ime ima "normalnu" strukturu
+        if (!this.hasReasonableNameStructure(cleanText)) return false;
+
+        return true;
     },
 
     /**
      * Provjerava da li tekst ima strukturu koja liči na ime
      */
     hasReasonableNameStructure: function (text) {
-        if (text.length <= 2) return true;
+        if (text.length <= 3) return true;
 
-        // Broj različitih karaktera mora biti dovoljan
+        // Različiti karakteri
         const uniqueChars = new Set(text).size;
-        if (uniqueChars < Math.floor(text.length / 1.5)) {
-            return false; // Strožije - manje ponavljajućih karaktera
+        if (uniqueChars < 2) return false;
+
+        // Alternacija samoglasnik-suglasnik (barem nešto)
+        let hasAlternation = false;
+        for (let i = 1; i < text.length; i++) {
+            const prevIsVowel = /[aeioučćžšđ]/.test(text[i - 1]);
+            const currIsVowel = /[aeioučćžšđ]/.test(text[i]);
+            if (prevIsVowel !== currIsVowel) {
+                hasAlternation = true;
+                break;
+            }
         }
 
-        // Strožija provjera za uzastopne suglasnike
-        const consonantSequences = text.match(/[bcdfghjklmnpqrstvwxyz]{3,}/gi);
-        if (consonantSequences && consonantSequences.length > 0) {
-            return false;
-        }
-
-        // Strožija provjera za uzastopne samoglasnike
-        const vowelSequences = text.match(/[aeioučćžšđ]{3,}/gi);
-        if (vowelSequences && vowelSequences.length > 0) {
-            return false;
-        }
+        if (!hasAlternation && text.length > 4) return false;
 
         return true;
     },

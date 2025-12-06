@@ -1,4 +1,4 @@
-// utils.js - COMPLETE VERSION WITH ALL FUNCTIONS
+// utils.js - COMPLETE VERSION WITH ALL FUNCTIONS + SEO OPTIMIZATION
 const UTILS = {
     // DOM Utilities
     getNestedValue: (obj, path) => {
@@ -413,29 +413,17 @@ const UTILS = {
         const phoneInput = document.querySelector('input[name="phone"]');
         const messageTextarea = document.querySelector('textarea[name="message"]');
 
-        const placeholders = {
-            'sr': {
-                subject: 'Ime i prezime',
-                phone: 'Broj telefona',
-                message: 'Vaša poruka...'
-            },
-            'en': {
-                subject: 'Your name',
-                phone: 'Phone number',
-                message: 'Your message...'
-            },
-            'ru': {
-                subject: 'Ваше имя',
-                phone: 'Номер телефона',
-                message: 'Ваше сообщение...'
-            }
-        };
+        // ✅ Osigurajte da postoje prevodi
+        if (!window.currentTranslations) {
+            console.warn('Translations not loaded yet');
+            return;
+        }
 
-        const langPlaceholders = placeholders[currentLanguage] || placeholders['sr'];
+        const contact = window.currentTranslations.contact || {};
 
-        if (subjectInput) subjectInput.placeholder = langPlaceholders.subject;
-        if (phoneInput) phoneInput.placeholder = langPlaceholders.phone;
-        if (messageTextarea) messageTextarea.placeholder = langPlaceholders.message;
+        if (subjectInput) subjectInput.placeholder = contact.namePlaceholder || '';
+        if (phoneInput) phoneInput.placeholder = contact.phonePlaceholder || '';
+        if (messageTextarea) messageTextarea.placeholder = contact.messagePlaceholder || '';
     },
 
     // Scroll Utilities
@@ -584,5 +572,163 @@ const UTILS = {
 
             element.addEventListener('animationend', handleAnimationEnd, { once: true });
         });
+    },
+
+    // ==================== SEO META TAG MANAGEMENT ====================
+
+    /**
+     * Ažurira ili kreira meta tag (sprečava duplikate)
+     */
+    updateOrCreateMeta: function (attrName, attrValue, content) {
+        let selector = `meta[${attrName}="${attrValue}"]`;
+        let metaTag = document.querySelector(selector);
+
+        if (!metaTag) {
+            metaTag = document.createElement('meta');
+            metaTag.setAttribute(attrName, attrValue);
+            document.head.appendChild(metaTag);
+        }
+        metaTag.setAttribute('content', content);
+        return metaTag;
+    },
+
+    /**
+     * Postavlja osnovne OG tagove (jednom se poziva)
+     */
+    initializeOpenGraphTags: function () {
+        const baseUrl = window.location.origin || 'https://perfectshine.me';
+
+        const staticTags = [
+            // OG Tags
+            { attr: 'property', name: 'og:type', content: 'website' },
+            { attr: 'property', name: 'og:site_name', content: 'Perfect Shine' },
+            { attr: 'property', name: 'og:url', content: baseUrl },
+
+            // OG Images - SVG logo iz root foldera
+            { attr: 'property', name: 'og:image', content: `${baseUrl}/logo.svg` },
+            { attr: 'property', name: 'og:image:type', content: 'image/svg+xml' },
+            { attr: 'property', name: 'og:image:width', content: '200' },
+            { attr: 'property', name: 'og:image:height', content: '200' },
+            { attr: 'property', name: 'og:image:alt', content: 'Perfect Shine Logo - servis za dubinsko pranje' },
+
+            // Fallback PNG za platforme bez SVG podrške
+            { attr: 'property', name: 'og:image', content: `${baseUrl}/img/logo/logo.png` },
+            { attr: 'property', name: 'og:image:type', content: 'image/png' },
+            { attr: 'property', name: 'og:image:width', content: '200' },
+            { attr: 'property', name: 'og:image:height', content: '200' },
+
+            // Hero slika za bolje prikazivanje
+            { attr: 'property', name: 'og:image', content: `${baseUrl}/img/about/puzi-hero+.webp` },
+            { attr: 'property', name: 'og:image:type', content: 'image/webp' },
+            { attr: 'property', name: 'og:image:width', content: '1200' },
+            { attr: 'property', name: 'og:image:height', content: '630' },
+
+            // Additional OG tags
+            { attr: 'property', name: 'og:image:secure_url', content: `${baseUrl}/logo.svg` },
+            { attr: 'property', name: 'og:image:secure_url', content: `${baseUrl}/img/about/puzi-hero+.webp` }
+        ];
+
+        staticTags.forEach(tag => {
+            this.updateOrCreateMeta(tag.attr, tag.name, tag.content);
+        });
+
+        // Dodajte osnovne SEO meta tagove
+        this.updateOrCreateMeta('name', 'robots', 'index, follow, max-image-preview:large');
+        this.updateOrCreateMeta('name', 'googlebot', 'index, follow');
+        this.updateOrCreateMeta('name', 'author', 'Siniša Terzić');
+        this.updateOrCreateMeta('name', 'copyright', 'Perfect Shine');
+
+        return true;
+    },
+
+    /**
+     * Ažurira Open Graph tagove za trenutni jezik
+     */
+    updateOpenGraphForLanguage: function (lang, translations) {
+        const ogLocaleMap = {
+            'sr': 'sr_ME',
+            'en': 'en_US',
+            'ru': 'ru_RU'
+        };
+
+        const currentLocale = ogLocaleMap[lang] || 'sr_ME';
+
+        // Ažuriraj dinamičke OG tagove
+        this.updateOrCreateMeta('property', 'og:title',
+            translations?.pageTitle || 'Perfect Shine - Dubinsko Pranje');
+
+        this.updateOrCreateMeta('property', 'og:description',
+            translations?.pageDescription ||
+            'Profesionalno dubinsko pranje automobila, garnitura, jahti i hotela na crnogorskom primorju.');
+
+        this.updateOrCreateMeta('property', 'og:locale', currentLocale);
+
+        return true;
+    },
+
+    /**
+     * Ažurira Geo tagove za trenutni jezik
+     */
+    updateGeoTagsForLanguage: function (lang) {
+        const geoData = {
+            'sr': {
+                region: 'ME-10',
+                placename: 'Kotor, Crna Gora',
+                position: '42.369187;18.753562',
+                ICBM: '42.369187, 18.753562'
+            },
+            'en': {
+                region: 'ME-10',
+                placename: 'Kotor, Montenegro',
+                position: '42.369187;18.753562',
+                ICBM: '42.369187, 18.753562'
+            },
+            'ru': {
+                region: 'ME-10',
+                placename: 'Котор, Черногория',
+                position: '42.369187;18.753562',
+                ICBM: '42.369187, 18.753562'
+            }
+        };
+
+        const currentGeo = geoData[lang] || geoData['sr'];
+
+        this.updateOrCreateMeta('name', 'geo.region', currentGeo.region);
+        this.updateOrCreateMeta('name', 'geo.placename', currentGeo.placename);
+        this.updateOrCreateMeta('name', 'geo.position', currentGeo.position);
+        this.updateOrCreateMeta('name', 'ICBM', currentGeo.ICBM);
+
+        return true;
+    },
+
+    /**
+     * Postavlja HTML lang attribute za trenutni jezik
+     */
+    updateHtmlLangAttribute: function (lang) {
+        const htmlElement = document.documentElement;
+        if (htmlElement) {
+            htmlElement.setAttribute('lang', lang);
+        }
+        return true;
+    },
+
+    /**
+     * Inicijalizuje sve SEO tagove (poziva se jednom pri učitavanju)
+     */
+    initializeAllMetaTags: function () {
+        // 1. Postavi HTML lang
+        const savedLang = localStorage.getItem('preferredLanguage') || 'sr';
+        this.updateHtmlLangAttribute(savedLang);
+
+        // 2. Inicijalizuj OG tagove
+        this.initializeOpenGraphTags();
+
+        // 3. Postavi Geo tagove
+        this.updateGeoTagsForLanguage(savedLang);
+
+        // 4. Dodaj Canonical URL
+        this.updateOrCreateMeta('rel', 'canonical', window.location.href);
+
+        return true;
     }
 };
