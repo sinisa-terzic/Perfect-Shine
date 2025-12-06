@@ -494,17 +494,17 @@
     margin-bottom: 3rem;
   }
 
-  /* .about-description {
-    line-height: normal;
+  .about-description {
+    /* line-height: normal; */
     letter-spacing: normal;
-  } */
+  }
 
   .lead {
-    font-size: 1.9rem;
+    font-size: 2rem;
   }
 
   .aboutUs .p {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 
   .info-service {
