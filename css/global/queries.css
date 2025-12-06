@@ -494,13 +494,13 @@
     margin-bottom: 3rem;
   }
 
-  .about-description {
+  /* .about-description {
     line-height: normal;
     letter-spacing: normal;
-  }
+  } */
 
   .lead {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 
   .aboutUs .p {
